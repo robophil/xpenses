@@ -1,6 +1,6 @@
 @import './custom.css';
-@import './variables';
-@import './fonts';
+@import './variables.scss';
+@import './fonts.scss';
 
 .action-bar {
   background-color: $primary-accent;

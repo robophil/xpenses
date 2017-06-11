@@ -3,25 +3,27 @@
   <FAB row="1" icon="res://ic_add_white" rippleColor="#f1f1f1" class="fab-button"></FAB>
 
   <AbsoluteLayout row="1" class="content-body">
-    <StackLayout width="100%">
+    <ScrollView orientation="horizontal" width="100%">
+      <StackLayout *ngIf="data$ | async as data" orientation="horizontal" class="scroll-menu">
 
-      <CardView #card class="cardStyle" margin="20" marginTop="0" elevation="5" radius="325">
-
-        <GridLayout class="cycle" rows="280, *">
-
-          <GridLayout class="text-center n" row="0" columns="30, *, 30">
-            <Label class="small" col="0" text="N"></Label>
-            <Label class="text-center expense" col="1" [text]="expenses.count"></Label>
-            <Label class="small" col="2" [text]="expenses.suffix"></Label>
+        <!--// Add Before-->
+        <GridLayout rows="*">
+          <GridLayout rows="*" class="cardStyle create-bar">
+            <Label verticalAlignment="center" horizontalAlignment="center" text="+" fontSize="150"></Label>
           </GridLayout>
-
-          <StackLayout marginTop="-85" row="1">
-            <Label class="text-center strong" [text]="budget.count+budget.suffix" row="1"></Label>
-          </StackLayout>
         </GridLayout>
-      </CardView>
-    </StackLayout>
+
+        <Cycle [data]="data"></Cycle>
+
+        <!--// Add After-->
+        <GridLayout rows="*">
+          <GridLayout rows="*" class="cardStyle create-bar">
+            <Label verticalAlignment="center" horizontalAlignment="center" text="+" fontSize="150"></Label>
+          </GridLayout>
+        </GridLayout>
+
+      </StackLayout>
+    </ScrollView>
   </AbsoluteLayout>
 
 </GridLayout>
-

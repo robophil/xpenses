@@ -1,14 +1,19 @@
-<GridLayout row="0" rows="auto, *">
+<GridLayout row="0" rows="auto, *" *ngIf="data$ | async as data">
 
-  <FAB row="1" [hideOnSwipeOfView]="list" icon="res://ic_playlist_add_white" rippleColor="#f1f1f1" class="fab-button"></FAB>
+  <GridLayout row="0" rows="20, *" class="header">
+    <Label row="0" class="h4" text="CATEGORIES" textWrap="true"></Label>
+    <Label row="1" class="h1" [text]="data.length" textWrap="true"></Label>
+  </GridLayout>
+
+  <FAB row="1" icon="res://ic_playlist_add_white" rippleColor="#f1f1f1" class="fab-button"></FAB>
 
   <AbsoluteLayout row="1" class="content-body">
-    <ListView #list [items]="data$ | async" (loaded)="onLoaded(event)" (itemLoading)="onItemLoading(event)" (itemTap)="onItemTap(event)"
+    <ListView [items]="data" (loaded)="onLoaded(event)" (itemLoading)="onItemLoading(event)" (itemTap)="onItemTap(event)"
       class="list-group">
       <ng-template let-item="item" let-odd="odd" let-even="even">
         <GridLayout class="list-group-item" columns="*, auto">
           <Label [text]="item.value" class="h5"></Label>
-          <Button col="1" class="m-icon btn pull-right btn-outline" text="&#xE22B;" (tap)="return"></Button>
+          <!--<Button col="1" class="m-icon btn pull-right btn-outline" text="&#xE22B;" (tap)="return"></Button>-->
         </GridLayout>
       </ng-template>
     </ListView>

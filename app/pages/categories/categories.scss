@@ -2,16 +2,34 @@
 @import '../../variables.scss';
 @import '../../fonts.scss';
 
-.fab-button {
-  height: 70;
-  width: 70; /// this is required on iOS - Android does not require width so you might need to adjust styles
-  margin: 15;
-  background-color: $secondary-accent;
-  // background-color: $primary-accent;
-  horizontal-align: center;
-  vertical-align: bottom;
-  // font-size: 56px;
+.header {
+  // background-color: white;
+  height: 100;
+  padding: 10;
+
+  Label {
+    vertical-align: center;
+  }
+
+  .h1 {
+    font-size: 60;
+  }
+  .h4 {
+    height: 100%;
+    vertical-align: middle;
+  }
+
 }
+  .fab-button {
+    height: 55;
+    width: 55; /// this is required on iOS - Android does not require width so you might need to adjust styles
+    margin: 15;
+    margin-top: -20;
+    // background-color: $secondary-accent;
+    background-color: $primary-accent;
+    horizontal-align: right;
+    vertical-align: top;
+  }
 
 .content-body {
   // height: 100%;
@@ -25,6 +43,9 @@
     .list-group-item {
       padding: 15;
       background-color: whitesmoke;
+      border-left-width: 5;
+      border-left-style: solid;
+      border-left-color: $primary-accent;
 
       Label {
         vertical-align: center;

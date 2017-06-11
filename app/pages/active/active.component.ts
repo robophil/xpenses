@@ -18,14 +18,9 @@ export class ActiveComponent implements OnInit, AfterViewInit {
     expense: { count: string, suffix: string },
     budget: { count: string, suffix: string }
   }[]>;
-  private isShowTop: boolean = false;
-  private suffix: string = 'K';
-  expenses;
-  budget;
-  @ViewChild('card') cardUi: ElementRef;
 
   constructor(
-    private zone: NgZone,
+    // private zone: NgZone,
     private router: Router,
     ) {
     }
@@ -37,10 +32,7 @@ export class ActiveComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.expenses = { count: 12, suffix: 'k' };
-    this.budget = { count: 12, suffix: 'k' };
-
-    this.data$ = Observable.of(10).map(i => {
+    this.data$ = Observable.of(4).map(i => {
       const data = [];
 
       for (i; i > 0; i--) {
@@ -52,28 +44,6 @@ export class ActiveComponent implements OnInit, AfterViewInit {
 
       return data;
     })
-    // .do(x => console.dir(x))
-    // .subscribe();
-
-    this.cardUi.nativeElement.on(GestureTypes.swipe, (args: SwipeGestureEventData) => {
-      /**
-       * 8 - down
-       * 4 - up
-       * 2 - right
-       * 1 - left
-       */
-
-      if (args.direction === 8) {
-        this.isShowTop = true;
-      }
-      else if (args.direction === 4) {
-        this.isShowTop = false;
-      }
-
-      this.zone.run(() => 0);
-      console.log("Swipe Direction: " + args.direction, this.isShowTop);
-    });
-
   }
 
   ngAfterViewInit() {

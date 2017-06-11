@@ -1,0 +1,55 @@
+@import '../../../variables.scss';
+@import '../../../fonts.scss';
+
+.cardStyle {
+  margin: 20;
+  margin-top: -50;
+  width: 250;
+  height: 250;
+  background-color: #fafafa;
+
+  .cycle {
+    vertical-align: center;
+    height: 100%;
+    width: 100%;
+    background-color: $primary-accent;
+    padding: 15;
+    margin: 5;
+    border-radius: 200;
+
+    .small, .strong, .expense {
+      color: white;
+    }
+
+    .small {
+      font-size: 25;
+      font-weight: 100;
+
+      &.g {
+        padding: 1 10;
+        background-color: whitesmoke;
+        color: darkgray;
+        border-radius: 3;
+      }
+    }
+    .strong {
+      font-size: 16px;
+    }
+    .expense {
+      font-size: 100px;
+      font-weight: 600;
+      vertical-align: center;
+    }
+
+    .text-center {
+      horizontal-align: center;
+    }
+
+    .n {
+      .small {
+        vertical-align: center;
+        horizontal-align: center;
+      }
+    }
+  }
+}

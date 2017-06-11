@@ -1,5 +1,4 @@
 import { Component, ElementRef, ViewChild, OnInit, NgZone } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 import { GestureTypes, SwipeGestureEventData } from "ui/gestures";
 import { registerElement } from "nativescript-angular/element-registry";
@@ -18,7 +17,6 @@ export class CategoriesComponent implements OnInit {
 
   constructor(
     private zone: NgZone,
-    private router: Router,
   ) {
   }
 

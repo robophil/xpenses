@@ -21,8 +21,11 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
   styleUrls: ['./app.css'],
   animations: [
     trigger('slideUp', [
+      state('void', style({ opacity: 0, transform: 'translateY(100%)', height: '*' })),
       state('active', style({ opacity: 1, transform: 'translateY(0%)', height: '*' })),
       state('inactive', style({ opacity: 0, transform: 'translateY(100%)', height: 0 })),
+      transition('void <=> active', [animate('750ms cubic-bezier(0.44, 1.49, 1, 1)')]),
+      transition('void <=> inactive', [animate('750ms cubic-bezier(0.44, 1.49, 1, 1)')]),
       transition('active <=> inactive', [animate('750ms cubic-bezier(0.44, 1.49, 1, 1)')]),
     ])
   ]
@@ -39,17 +42,17 @@ export class AppComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     ) {
-      this.route.paramMap.subscribe(x => {
-        console.dir(x)
-      })
+      // this.route.paramMap.subscribe(x => {
+      //   console.dir(x)
+      // })
       // this.router.isActive
     }
 
-  goTo(page: string) {
-    console.log('page:' + page);
-    // this.router.navigate(['/'+page], { replaceUrl: false });
-    // this.router.navigate(['/'+page], { replaceUrl: true });
-  }
+  // goTo(page: string) {
+  //   console.log('page:' + page);
+  //   // this.router.navigate(['/'+page], { replaceUrl: false });
+  //   // this.router.navigate(['/'+page], { replaceUrl: true });
+  // }
 
   showMenu() {
     this.isShowMenu = !this.isShowMenu;

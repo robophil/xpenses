@@ -1,0 +1,15 @@
+<CardView #card *ngFor="let item of data" #card class="cardStyle" elevation="5" radius="250">
+  <GridLayout class="cycle" rows="180, *">
+
+    <GridLayout class="text-center n" row="0" columns="30, *, 30">
+      <Label class="small" col="0" text="N"></Label>
+      <Label class="text-center expense" col="1" [text]="item.expense.count"></Label>
+      <Label class="small" col="2" [text]="item.expense.suffix"></Label>
+    </GridLayout>
+
+    <StackLayout marginTop="-25" row="1">
+      <Label class="text-center strong" [text]="item.budget.count+item.budget.suffix" row="1"></Label>
+    </StackLayout>
+  </GridLayout>
+
+</CardView>
