@@ -1,0 +1,42 @@
+@import '../../custom.css';
+@import '../../variables.scss';
+@import '../../fonts.scss';
+
+.fab-button {
+  height: 70;
+  width: 70; /// this is required on iOS - Android does not require width so you might need to adjust styles
+  margin: 15;
+  background-color: $secondary-accent;
+  // background-color: $primary-accent;
+  horizontal-align: center;
+  vertical-align: bottom;
+  // font-size: 56px;
+}
+
+.content-body {
+  // height: 100%;
+  // width: 100%;
+  // background-color: red;
+
+  .list-group {
+    height: 100%;
+    width: 100%;
+
+    .list-group-item {
+      padding: 15;
+      background-color: whitesmoke;
+
+      Label {
+        vertical-align: center;
+      }
+
+      .btn {
+        width: 35;
+        height: 35;
+        padding: 0;
+        border-width: 0;
+      }
+    }
+  }
+}
+
