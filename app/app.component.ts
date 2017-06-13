@@ -10,7 +10,10 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/distinctUntilChanged';
+import { BottomBar, BottomBarItem, TITLE_STATE, SelectedIndexChangedEventData, Notification } from 'nativescript-bottombar';
 
+registerElement('BottomBar', () => BottomBar);
 registerElement("CardView", () => require("nativescript-cardview").CardView);
 registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
 
@@ -32,36 +35,64 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
 })
 export class AppComponent implements OnInit {
   private page: Page;
-  private isShowMenu: boolean = true;
-  private isShowTop: boolean = false;
   private currentPage: string = 'active';
+  public _bar: BottomBar;
+  public hidden: boolean = false;
+  public titleState: TITLE_STATE = TITLE_STATE.ALWAYS_SHOW;
+  public inactiveColor: string = '#bbbbbb';
+  public accentColor: string = '#e91e63';
+  public items: Array<BottomBarItem>;
+  public pages = [
+    "Categories",
+    "Expenses",
+    "Active",
+    "Cycles",
+    "Info"
+  ];
 
   constructor(
     private fonticon: TNSFontIconService,
     private zone: NgZone,
     private route: ActivatedRoute,
     private router: Router,
-    ) {
-      // this.route.paramMap.subscribe(x => {
-      //   console.dir(x)
-      // })
-      // this.router.isActive
-    }
+  ) {
+  }
 
-  // goTo(page: string) {
-  //   console.log('page:' + page);
-  //   // this.router.navigate(['/'+page], { replaceUrl: false });
-  //   // this.router.navigate(['/'+page], { replaceUrl: true });
-  // }
+  ngOnInit() {
+    this.router.events.map(({ url }: any) => url.split('/')[1]).distinctUntilChanged()
+    .subscribe((page) => {
+      console.log(page)
+      // console.log(x.url)
+    })
+    this.items = [
+      new BottomBarItem(0, this.pages[0], "ic_list_white", "white"),
+      new BottomBarItem(1, this.pages[1], "ic_attach_money_white", "white"),
+      new BottomBarItem(2, this.pages[2], "ic_play_circle_outline_white", "white", new Notification("white", "#e91e63", "1")),
+      new BottomBarItem(3, this.pages[3], "ic_history_white", "white"),
+      new BottomBarItem(4, this.pages[4], "ic_info_outline_white", "white"),
+    ];
+
+  }
+
+  tabLoaded(event) {
+    this._bar = <BottomBar>event.object;
+    this._bar.selectItem(2); // Select Page 2 as default page
+  }
+
+  tabSelected(args: SelectedIndexChangedEventData) {
+    const page = (this.pages[args.newIndex]).toLowerCase();
+    // console.log(page);
+    this.router.navigateByUrl(page);
+    // this.router.navigateByUrl('/'+page);
+    // this.router.navigate(['/'+page], { replaceUrl: false });
+  }
 
   showMenu() {
-    this.isShowMenu = !this.isShowMenu;
+    console.log('hey');
+    this.hidden = false;
   }
 
   isActivePage(page: string) {
     return page.toLowerCase() === this.currentPage.toLowerCase();
-  }
-
-  ngOnInit() {
   }
 }
