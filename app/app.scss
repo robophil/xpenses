@@ -19,6 +19,8 @@
     font-size: 35;
     padding: 5;
     width: 90px;
+    border-width: 1;
+    border-color: transparent;
   }
 
   .home-icon {
@@ -26,27 +28,6 @@
 
   .sign-icon {
     horizontal-align: right;
-  }
-}
-
-.bottom-bar {
-  margin-top: 1;
-  border-width: 1;
-  border-style: solid;
-  border-color: #f0f0f0;
-
-  Button {
-    background-color: white;
-    font-size: 25;
-    vertical-align: center;
-    horizontal-align: center;
-    color: #c6c6c6;
-    font-weight: 100;
-
-    &.active {
-      color: $primary-accent;
-      font-size: 45;
-    }
   }
 }
 

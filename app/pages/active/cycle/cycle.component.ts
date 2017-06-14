@@ -10,7 +10,7 @@ import { GestureTypes, SwipeGestureEventData } from "ui/gestures";
 })
 export class CycleComponent implements OnInit, AfterViewInit {
   private isShowTop: boolean;
-  @Input() data: {
+  @Input() item: {
     expense: { count: string, suffix: string },
     budget: { count: string, suffix: string }
   }[];
@@ -24,24 +24,22 @@ export class CycleComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     // console.dir(this.data)
-    this.cardUi.nativeElement.on(GestureTypes.swipe, (args: SwipeGestureEventData) => {
-      /**
-       * 8 - down
-       * 4 - up
-       * 2 - right
-       * 1 - left
-       */
+    // this.cardUi.nativeElement.on(GestureTypes.swipe, (args: SwipeGestureEventData) => {
+    //   //  * 8 - down
+    //   //  * 4 - up
+    //   //  * 2 - right
+    //   //  * 1 - left
 
-      if (args.direction === 8) {
-        this.isShowTop = true;
-      }
-      else if (args.direction === 4) {
-        this.isShowTop = false;
-      }
+    //   if (args.direction === 8) {
+    //     this.isShowTop = true;
+    //   }
+    //   else if (args.direction === 4) {
+    //     this.isShowTop = false;
+    //   }
 
-      this.zone.run(() => 0);
-      console.log("Swipe Direction: " + args.direction, this.isShowTop);
-    });
+    //   this.zone.run(() => 0);
+    //   console.log("Swipe Direction: " + args.direction, this.isShowTop);
+    // });
 
   }
 

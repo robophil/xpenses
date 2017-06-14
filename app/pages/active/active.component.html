@@ -1,29 +1,23 @@
-<GridLayout row="0" rows="auto, *">
+<GridLayout row="0" rows="*">
 
-  <FAB row="1" icon="res://ic_add_white" rippleColor="#f1f1f1" class="fab-button"></FAB>
+  <slides #slidesEl [pageIndicators]="true" (loaded)="onSlideContainerLoaded(slidesEl, data.length)" *ngIf="data$ | async as data">
+    <!--// Add Before-->
+    <slide>
+      <GridLayout (tap)="createCycle()" class="create-bar">
+        <Label text="+"></Label>
+      </GridLayout>
+    </slide>
 
-  <AbsoluteLayout row="1" class="content-body">
-    <ScrollView orientation="horizontal" width="100%">
-      <StackLayout *ngIf="data$ | async as data" orientation="horizontal" class="scroll-menu">
+    <slide class="" *ngFor="let item of data">
+      <Cycle [item]="item"></Cycle>
+    </slide>
 
-        <!--// Add Before-->
-        <GridLayout rows="*">
-          <GridLayout rows="*" class="cardStyle create-bar">
-            <Label verticalAlignment="center" horizontalAlignment="center" text="+" fontSize="150"></Label>
-          </GridLayout>
-        </GridLayout>
+    <!--// Add After-->
+    <slide *ngIf="data.length">
+      <GridLayout (tap)="createCycle()" class="create-bar">
+        <Label text="+"></Label>
+      </GridLayout>
+    </slide>
 
-        <Cycle [data]="data"></Cycle>
-
-        <!--// Add After-->
-        <GridLayout rows="*">
-          <GridLayout rows="*" class="cardStyle create-bar">
-            <Label verticalAlignment="center" horizontalAlignment="center" text="+" fontSize="150"></Label>
-          </GridLayout>
-        </GridLayout>
-
-      </StackLayout>
-    </ScrollView>
-  </AbsoluteLayout>
-
+  </slides>
 </GridLayout>

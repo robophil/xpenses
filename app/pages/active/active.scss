@@ -11,27 +11,42 @@
   font-size: 56px;
 }
 
-.content-body {
+.create-bar {
+  background-color: #f6f6f6;
+  margin-top: 40;
+  border-radius: 10;
+  width: 250;
+  height: 250;
+  border-color: #e6e6e6;
+  border-width: 2;
 
-  ScrollView {
-    height: 100%;
-
-    .scroll-menu {
-      background-color: whitesmoke;
-
-      .create-bar {
-        margin: 20;
-        margin-top: -50;
-        width: 250;
-        height: 250;
-        background-color: #777;
-
-        Label {
-          color: #999;
-        }
-      }
-    }
+  Label {
+    color: #cccccc;
+    vertical-align: center;
+    font-size: 65;
+    text-align: center;
   }
+}
 
+.slide-indicator-inactive{
+  background-color: #fff;
+  opacity : 0.4;
+  width : 10;
+  height : 10;
+  margin-left : 2.5;
+  margin-right : 2.5;
+  margin-top : 0;
+  border-radius : 5;
+}
+
+.slide-indicator-active{
+  background-color: #fff;
+  opacity : 0.9;
+  width : 10;
+  height : 10;
+  margin-left : 2.5;
+  margin-right : 2.5;
+  margin-top : 0;
+  border-radius : 5;
 }
 

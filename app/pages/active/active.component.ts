@@ -5,6 +5,8 @@ import { GestureTypes, SwipeGestureEventData } from "ui/gestures";
 import { registerElement } from "nativescript-angular/element-registry";
 import { Page } from 'ui/page'
 import { topmost } from "ui/frame"
+import { SlidesModule } from 'nativescript-ngx-slides';
+import { SlidesComponent } from 'nativescript-ngx-slides/slides/app/slides/slides.component';
 
 @Component({
   moduleId: module.id,
@@ -18,12 +20,23 @@ export class ActiveComponent implements OnInit, AfterViewInit {
     expense: { count: string, suffix: string },
     budget: { count: string, suffix: string }
   }[]>;
+  public slides: SlidesComponent;
 
   constructor(
     // private zone: NgZone,
     private router: Router,
     ) {
     }
+
+  onSlideContainerLoaded(slides: SlidesComponent, count: number) {
+    this.slides = slides;
+    slides.GoToSlide(count); // Switch to the last added active slide
+  }
+
+  createCycle() {
+    // console.log('hello');
+    this.router.navigateByUrl('/active/create');
+  }
 
   format(input) {
     const suffix = input > 1000000 ? 'M' : 'K';
