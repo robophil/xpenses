@@ -7,13 +7,15 @@ import { ActiveRouteModule } from './active-route.module';
 import { SlidesModule } from 'nativescript-ngx-slides';
 import { ActiveCreateComponent } from './create/create.component';
 import { ActiveViewComponent } from './view/view.component';
+import { ActiveSlidesComponent } from './view/slides.component';
 
 @NgModule({
   declarations: [
     ActiveComponent,
     CycleComponent,
     ActiveCreateComponent,
-    ActiveViewComponent
+    ActiveViewComponent,
+    ActiveSlidesComponent
   ],
   imports: [
     NativeScriptModule,

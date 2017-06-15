@@ -1,0 +1,40 @@
+
+.create-bar {
+  background-color: #f6f6f6;
+  margin-top: 40;
+  border-radius: 10;
+  width: 250;
+  height: 250;
+  border-color: #e6e6e6;
+  border-width: 2;
+}
+
+.create-bar Label {
+  color: #e6e6e6;
+  vertical-align: center;
+  font-size: 65;
+  font-weight: 100;
+  text-align: center;
+}
+
+.slide-indicator-inactive{
+  background-color: #fff;
+  opacity : 0.4;
+  width : 10;
+  height : 10;
+  margin-left : 2.5;
+  margin-right : 2.5;
+  margin-top : 0;
+  border-radius : 5;
+}
+
+.slide-indicator-active{
+  background-color: #fff;
+  opacity : 0.9;
+  width : 10;
+  height : 10;
+  margin-left : 2.5;
+  margin-right : 2.5;
+  margin-top : 0;
+  border-radius : 5;
+}

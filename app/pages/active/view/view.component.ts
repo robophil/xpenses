@@ -26,15 +26,10 @@ export class ActiveViewComponent implements OnInit, AfterViewInit {
     ) {
     }
 
-  onSlideContainerLoaded(slides: SlidesComponent, count: number) {
-    this.slides = slides;
-    debugger
-    // slides.GoToSlide(count); // Switch to the last added active slide
-  }
-
   createCycle() {
-    // console.log('hello');
+    console.log('hello');
     this.router.navigateByUrl('/active/create');
+    // this.create.emit();
   }
 
   format(input) {

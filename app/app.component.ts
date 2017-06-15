@@ -61,6 +61,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       console.log('params');
+      // debugger
       console.dir(params);
     })
 
@@ -90,14 +91,5 @@ export class AppComponent implements OnInit {
     this.router.navigateByUrl(page, { queryParams: { root: true } });
     // this.router.navigateByUrl('/'+page);
     // this.router.navigate(['/'+page], { replaceUrl: false });
-  }
-
-  showMenu() {
-    console.log('hey');
-    this.hidden = false;
-  }
-
-  isActivePage(page: string) {
-    return page.toLowerCase() === this.currentPage.toLowerCase();
   }
 }
