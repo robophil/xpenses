@@ -1,10 +1,13 @@
 import { Component, ElementRef, ViewChild, OnInit, AfterViewInit, NgZone } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
+// import { Router, ActivatedRoute } from "@angular/router";
+import { RouterExtensions } from "nativescript-angular/router";
 import { Observable } from "rxjs/Observable";
 import { Page } from 'ui/page'
 import { topmost } from "ui/frame"
 import { SlidesModule } from 'nativescript-ngx-slides';
 import { SlidesComponent } from 'nativescript-ngx-slides/slides/app/slides/slides.component';
+
+const transition = { name: "slide", duration: 300 };
 
 @Component({
   moduleId: module.id,
@@ -21,15 +24,15 @@ export class ActiveViewComponent implements OnInit, AfterViewInit {
   public slides: SlidesComponent;
 
   constructor(
-    // private zone: NgZone,
-    private router: Router,
-    ) {
-    }
+    private router: RouterExtensions,
+  ) { }
+
+  openCycle() {
+    this.router.navigateByUrl('/active/open', { transition });
+  }
 
   createCycle() {
-    console.log('hello');
-    this.router.navigateByUrl('/active/create');
-    // this.create.emit();
+    this.router.navigateByUrl('/active/create', { transition });
   }
 
   format(input) {

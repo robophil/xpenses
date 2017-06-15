@@ -3,7 +3,7 @@
   <FAB row="1" icon="res://ic_add_white" rippleColor="#f1f1f1" class="fab-button"></FAB>
 
   <ng-container *ngIf="data$ | async as data">
-    <active-slides [data]="data" (create)="createCycle($event)"></active-slides>
+    <active-slides [data]="data" (open)="openCycle($event)" (create)="createCycle($event)"></active-slides>
   </ng-container>
 
 </GridLayout>
