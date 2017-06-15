@@ -4,30 +4,15 @@
 
 .action-bar {
   background-color: $primary-accent;
-}
+  color: #ffffff;
+  // background-color: #ffffff;
+  // border-width: 1;
+  // border-color: #ffffff;
 
-.action-bar-title {}
-
-.top-bar {
-  vertical-align: top;
-  padding: 10 5;
-  // width: 100%;
-  color: lighten($primary-accent, 0.7);
-
-  Button {
-    background-color: transparent;
-    font-size: 35;
-    padding: 5;
-    width: 90px;
-    border-width: 1;
-    border-color: transparent;
-  }
-
-  .home-icon {
-  }
-
-  .sign-icon {
-    horizontal-align: right;
+  NavigationButton {
+    border-width: 2;
+    border-color: white;
+    font-size: 100;
   }
 }
 

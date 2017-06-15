@@ -1,0 +1,25 @@
+<GridLayout row="0" rows="*">
+
+  <FAB row="1" icon="res://ic_add_white" rippleColor="#f1f1f1" class="fab-button"></FAB>
+
+  <slides #slidesEl [pageIndicators]="true" (loaded)="onSlideContainerLoaded(slidesEl, data.length)" *ngIf="data$ | async as data">
+    <!--// Add Before-->
+    <slide>
+      <GridLayout (tap)="createCycle()" class="create-bar">
+        <Label text="+"></Label>
+      </GridLayout>
+    </slide>
+
+    <slide class="" *ngFor="let item of data">
+      <Cycle [item]="item"></Cycle>
+    </slide>
+
+    <!--// Add After-->
+    <slide *ngIf="data.length">
+      <GridLayout (tap)="createCycle()" class="create-bar">
+        <Label text="+"></Label>
+      </GridLayout>
+    </slide>
+
+  </slides>
+</GridLayout>

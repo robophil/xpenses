@@ -59,6 +59,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      console.log('params');
+      console.dir(params);
+    })
+
     this.router.events.map(({ url }: any) => url.split('/')[1]).distinctUntilChanged()
     .subscribe((page) => {
       console.log(page)
@@ -82,7 +87,7 @@ export class AppComponent implements OnInit {
   tabSelected(args: SelectedIndexChangedEventData) {
     const page = (this.pages[args.newIndex]).toLowerCase();
     // console.log(page);
-    this.router.navigateByUrl(page);
+    this.router.navigateByUrl(page, { queryParams: { root: true } });
     // this.router.navigateByUrl('/'+page);
     // this.router.navigate(['/'+page], { replaceUrl: false });
   }
