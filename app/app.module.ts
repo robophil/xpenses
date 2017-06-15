@@ -9,7 +9,9 @@ import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+  ],
   bootstrap: [AppComponent],
   imports: [
     NativeScriptModule,

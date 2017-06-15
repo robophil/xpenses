@@ -18,6 +18,8 @@ const transition = { name: "slide", duration: 300 };
 export class ActiveViewComponent implements OnInit, AfterViewInit {
   public page: Page;
   public data$: Observable<{
+    id: number,
+    categories: string[],
     expense: { count: string, suffix: string },
     budget: { count: string, suffix: string }
   }[]>;
@@ -29,7 +31,7 @@ export class ActiveViewComponent implements OnInit, AfterViewInit {
 
   openCycle() {
     console.log('open');
-    this.router.navigateByUrl('/active/open', { transition });
+    this.router.navigateByUrl('/active/open/', { transition });
   }
 
   createCycle() {
@@ -45,12 +47,20 @@ export class ActiveViewComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.data$ = Observable.of(2).map(i => {
       const data = [];
+      const rand = () => Math.floor(Math.random() * 1000);
+      const id = rand();
 
       for (i; i > 0; i--) {
-        const rand = () => Math.floor(Math.random() * 1000);
         const expense = this.format(rand() * i);
         const budget = this.format(rand() * i);
-        data.push({ expense, budget });
+        const categories = [];
+
+        for (i = 10; i > 0; i--) {
+          const id_2 = rand(), name = 'category_'+rand(), value = rand();
+          categories.push({ id: id_2, name, value });
+        }
+
+        data.push({ id, categories, expense, budget });
       }
 
       return data;
