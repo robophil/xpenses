@@ -7,7 +7,7 @@
   </slide>
 
   <slide *ngFor="let item of data">
-    <Cycle [item]="item"></Cycle>
+    <Cycle (open)="openCycle()" [item]="item"></Cycle>
   </slide>
 
   <!--// Add After-->

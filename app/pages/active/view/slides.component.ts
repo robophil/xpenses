@@ -10,7 +10,12 @@ import { SlidesComponent } from 'nativescript-ngx-slides/slides/app/slides/slide
 export class ActiveSlidesComponent implements OnInit, AfterViewInit {
   @Input() public data: any[];
   @Output() public create = new EventEmitter<void>();
+  @Output() public open = new EventEmitter<void>();
   @ViewChild('slidesEl') slides: SlidesComponent;
+
+  openCycle() {
+    this.open.emit();
+  }
 
   createCycle() {
     this.create.emit();

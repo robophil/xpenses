@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild, OnInit, AfterViewInit, NgZone } from "@angular/core";
+import { Component, EventEmitter, ElementRef, Input, Output, ViewChild, OnInit, AfterViewInit, NgZone } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { GestureTypes, SwipeGestureEventData } from "ui/gestures";
 
@@ -15,12 +15,17 @@ export class CycleComponent implements OnInit, AfterViewInit {
     budget: { count: string, suffix: string }
   }[];
   @ViewChild('card') cardUi: ElementRef;
+  @Output() public open = new EventEmitter<void>();
 
   constructor(
     private zone: NgZone,
     private router: Router,
     ) {
     }
+
+  openCycle() {
+    this.open.emit();
+  }
 
   ngAfterViewInit() {
     // console.dir(this.data)

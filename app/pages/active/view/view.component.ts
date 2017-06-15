@@ -28,6 +28,7 @@ export class ActiveViewComponent implements OnInit, AfterViewInit {
   ) { }
 
   openCycle() {
+    console.log('open');
     this.router.navigateByUrl('/active/open', { transition });
   }
 
