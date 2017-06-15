@@ -9,7 +9,6 @@ import { GestureTypes, SwipeGestureEventData } from "ui/gestures";
   styleUrls: ["./cycle.css"],
 })
 export class CycleComponent implements OnInit, AfterViewInit {
-  private isShowTop: boolean;
   @Input() item: {
     expense: { count: string, suffix: string },
     budget: { count: string, suffix: string }
