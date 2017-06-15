@@ -1,14 +1,8 @@
 <StackLayout class="page">
-  <ActionBar class="action-bar">
-    <StackLayout class="action-bar-title">
-      <Label text="xPenses"></Label>
-    </StackLayout>
+  <ActionBar class="action-bar" title="xPenses">
+    <!--<NavigationButton icon="res://ic_menu_white_24dp"></NavigationButton>-->
+    <ActionItem icon="res://ic_person_white"></ActionItem>
   </ActionBar>
-
-  <GridLayout class="top-bar" row="0" columns="auto, *">
-    <Button col="0" class="m-icon menu-icon" text="&#xE5D2;" (tap)="showMenu();"></Button>
-    <Button col="1" class="m-icon sign-icon" text="&#xE851;" (tap)="return;"></Button>
-  </GridLayout>
 
   <GridLayout rows="*, auto" orientation="vertical">
     <router-outlet></router-outlet>

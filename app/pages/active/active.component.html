@@ -1,29 +1,8 @@
-<GridLayout row="0" rows="auto, *">
+<StackLayout class="page">
+  <ActionBar class="action-bar" title="Active Expenses">
+    <ActionItem icon="res://ic_person_white"></ActionItem>
+  </ActionBar>
 
-  <FAB row="1" icon="res://ic_add_white" rippleColor="#f1f1f1" class="fab-button"></FAB>
-
-  <AbsoluteLayout row="1" class="content-body">
-    <ScrollView orientation="horizontal" width="100%">
-      <StackLayout *ngIf="data$ | async as data" orientation="horizontal" class="scroll-menu">
-
-        <!--// Add Before-->
-        <GridLayout rows="*">
-          <GridLayout rows="*" class="cardStyle create-bar">
-            <Label verticalAlignment="center" horizontalAlignment="center" text="+" fontSize="150"></Label>
-          </GridLayout>
-        </GridLayout>
-
-        <Cycle [data]="data"></Cycle>
-
-        <!--// Add After-->
-        <GridLayout rows="*">
-          <GridLayout rows="*" class="cardStyle create-bar">
-            <Label verticalAlignment="center" horizontalAlignment="center" text="+" fontSize="150"></Label>
-          </GridLayout>
-        </GridLayout>
-
-      </StackLayout>
-    </ScrollView>
-  </AbsoluteLayout>
-
-</GridLayout>
+  <page-router-outlet></page-router-outlet>
+  <!--<router-outlet></router-outlet>-->
+</StackLayout>

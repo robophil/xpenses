@@ -59,9 +59,17 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.router.events.map(({ url }: any) => url.split('/')[1]).distinctUntilChanged()
+    this.route.queryParams.subscribe(params => {
+      console.log('params');
+      // debugger
+      console.dir(params);
+    })
+
+    this.router.events
+    .do(({ url }: any) => console.log('-', url))
+    .map(({ url }: any) => url.split('/')[1]).distinctUntilChanged()
     .subscribe((page) => {
-      console.log(page)
+      console.log('+', page)
       // console.log(x.url)
     })
     this.items = [
@@ -81,18 +89,9 @@ export class AppComponent implements OnInit {
 
   tabSelected(args: SelectedIndexChangedEventData) {
     const page = (this.pages[args.newIndex]).toLowerCase();
-    // console.log(page);
-    this.router.navigateByUrl(page);
+    console.log(page);
+    this.router.navigateByUrl('/'+page, { queryParams: { root: true } });
     // this.router.navigateByUrl('/'+page);
     // this.router.navigate(['/'+page], { replaceUrl: false });
-  }
-
-  showMenu() {
-    console.log('hey');
-    this.hidden = false;
-  }
-
-  isActivePage(page: string) {
-    return page.toLowerCase() === this.currentPage.toLowerCase();
   }
 }

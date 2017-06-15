@@ -1,0 +1,20 @@
+<slides #slidesEl [pageIndicators]="true">
+  <!--// Add Before-->
+  <slide>
+    <GridLayout (tap)="createCycle()" class="create-bar">
+      <Label text="+"></Label>
+    </GridLayout>
+  </slide>
+
+  <slide *ngFor="let item of data">
+    <Cycle (open)="openCycle()" [item]="item"></Cycle>
+  </slide>
+
+  <!--// Add After-->
+  <slide *ngIf="data.length">
+    <GridLayout (tap)="createCycle()" class="create-bar">
+      <Label text="+"></Label>
+    </GridLayout>
+  </slide>
+
+</slides>

@@ -1,0 +1,13 @@
+@import 'app/variables.scss';
+@import 'app/fonts.scss';
+
+.fab-button {
+  height: 120px;
+  width: 120px;
+  margin: 35px;
+  background-color: $primary-accent;
+  horizontal-align: right;
+  vertical-align: bottom;
+  font-size: 56px;
+}
+

@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild, OnInit, AfterViewInit, NgZone } from "@angular/core";
+import { Component, EventEmitter, ElementRef, Input, Output, ViewChild, OnInit, AfterViewInit, NgZone } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { GestureTypes, SwipeGestureEventData } from "ui/gestures";
 
@@ -9,12 +9,12 @@ import { GestureTypes, SwipeGestureEventData } from "ui/gestures";
   styleUrls: ["./cycle.css"],
 })
 export class CycleComponent implements OnInit, AfterViewInit {
-  private isShowTop: boolean;
-  @Input() data: {
+  @Input() item: {
     expense: { count: string, suffix: string },
     budget: { count: string, suffix: string }
   }[];
   @ViewChild('card') cardUi: ElementRef;
+  @Output() public open = new EventEmitter<void>();
 
   constructor(
     private zone: NgZone,
@@ -22,26 +22,28 @@ export class CycleComponent implements OnInit, AfterViewInit {
     ) {
     }
 
+  openCycle() {
+    this.open.emit();
+  }
+
   ngAfterViewInit() {
     // console.dir(this.data)
-    this.cardUi.nativeElement.on(GestureTypes.swipe, (args: SwipeGestureEventData) => {
-      /**
-       * 8 - down
-       * 4 - up
-       * 2 - right
-       * 1 - left
-       */
+    // this.cardUi.nativeElement.on(GestureTypes.swipe, (args: SwipeGestureEventData) => {
+    //   //  * 8 - down
+    //   //  * 4 - up
+    //   //  * 2 - right
+    //   //  * 1 - left
 
-      if (args.direction === 8) {
-        this.isShowTop = true;
-      }
-      else if (args.direction === 4) {
-        this.isShowTop = false;
-      }
+    //   if (args.direction === 8) {
+    //     this.isShowTop = true;
+    //   }
+    //   else if (args.direction === 4) {
+    //     this.isShowTop = false;
+    //   }
 
-      this.zone.run(() => 0);
-      console.log("Swipe Direction: " + args.direction, this.isShowTop);
-    });
+    //   this.zone.run(() => 0);
+    //   console.log("Swipe Direction: " + args.direction, this.isShowTop);
+    // });
 
   }
 
