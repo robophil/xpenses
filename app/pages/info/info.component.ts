@@ -13,6 +13,7 @@ import { topmost } from "ui/frame"
   styleUrls: ["./info.css"],
 })
 export class InfoComponent implements OnInit {
+  public title = "Info";
   private page: Page;
 
   constructor(

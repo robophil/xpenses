@@ -12,6 +12,7 @@ import { topmost } from "ui/frame"
   styleUrls: ["./categories.css"],
 })
 export class CategoriesComponent implements OnInit {
+  public title = "Categories";
   private page: Page;
   public data$: Observable<{ id: any, value: string }[]>;
 

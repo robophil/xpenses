@@ -12,6 +12,7 @@ import { topmost } from "ui/frame"
   styleUrls: ["./open.css"],
 })
 export class ActiveOpenComponent implements OnInit, AfterViewInit {
+  public title = "";
   public cycle: {
     expense: number;
     budget: number;

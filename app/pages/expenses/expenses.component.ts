@@ -13,6 +13,7 @@ import { topmost } from "ui/frame"
   styleUrls: ["./expenses.css"],
 })
 export class ExpensesComponent implements OnInit {
+  public title = "Expenses";
   private page: Page;
 
   constructor(

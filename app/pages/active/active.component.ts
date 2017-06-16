@@ -13,6 +13,7 @@ import { topmost } from "ui/frame"
 })
 export class ActiveComponent implements OnInit, AfterViewInit {
   private page: Page;
+  public title = "Active Cycles";
 
   constructor(
     // private zone: NgZone,

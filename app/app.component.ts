@@ -35,6 +35,7 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
   ]
 })
 export class AppComponent implements OnInit {
+  public title = "xPenses";
   private page: Page;
   private currentPage: string = 'active';
   public _bar: BottomBar;
@@ -97,6 +98,6 @@ export class AppComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    SwissArmyKnife.setAndroidStatusBarColor('#e91e63');
+    SwissArmyKnife.setAndroidStatusBarColor('#a90040');
   }
 }
