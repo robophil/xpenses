@@ -1,3 +1,94 @@
-Label {
-  color: red;
+@import '../../../custom.css';
+// @import '/app/custom.css';
+@import 'app/variables.scss';
+@import 'app/fonts.scss';
+
+.header {
+  // width: 100%;
+  height: 200;
+  background-color: white;
+
+  .top {
+    background-color: lightgray;
+    vertical-align: center;
+    padding: 5;
+  }
+
+  .content {
+    background-color: lighten(black, 65);
+    // height: 100%;
+    // width: 100%;
+
+    Label {
+      font-size: 60;
+      color: lighten(black, 65);
+      // color: white;
+      vertical-align: center;
+      background-color: white;
+      border-radius: 50%;
+      // border-color: lighten(gainsboro);
+      // border-top-width: 1;
+
+      &.e {
+        // border-right-width: 1px;
+        // color: $success-accent;
+      }
+
+      &.b {
+        // color: $primary-accent;
+      }
+    }
+
+  }
+
+  .bottom {
+    padding: 10;
+    color: white;
+    background-color: $success-accent;
+  }
 }
+
+  .fab-button {
+    height: 55;
+    width: 55; /// this is required on iOS - Android does not require width so you might need to adjust styles
+    margin: 15;
+    margin-top: -20;
+    // background-color: $secondary-accent;
+    background-color: $primary-accent;
+    horizontal-align: right;
+    vertical-align: top;
+  }
+
+.content-body {
+  // height: 100%;
+  // width: 100%;
+  // background-color: red;
+
+  .list-group {
+    height: 100%;
+    width: 100%;
+
+    .list-group-item {
+      padding: 25;
+      // background-color: whitesmoke;
+      // border-left-width: 5;
+      // border-left-color: $primary-accent;
+
+      Label {
+        vertical-align: center;
+
+        &.cost {
+          horizontal-align: right;
+        }
+      }
+
+      .btn {
+        width: 35;
+        height: 35;
+        padding: 0;
+        border-width: 0;
+      }
+    }
+  }
+}
+

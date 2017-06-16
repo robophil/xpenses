@@ -26,6 +26,18 @@ export class ActiveOpenComponent implements OnInit, AfterViewInit {
     this.router.backToPreviousPage();
   }
 
+  onLoaded(event) {
+    // console.log('onLoaded');
+  }
+
+  onItemLoading(event) {
+    // console.log('onItemLoading');
+  }
+
+  onItemTap(event) {
+    // console.log('onItemTap');
+  }
+
   ngOnInit() {
     this.data$ = Observable.of(2).map(o => {
       const data = [];

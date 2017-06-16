@@ -37,15 +37,15 @@ export class CategoriesComponent implements OnInit {
   }
 
   onLoaded(event) {
-    console.log('onLoaded');
+    // console.log('onLoaded');
   }
 
   onItemLoading(event) {
-    console.log('onItemLoading');
+    // console.log('onItemLoading');
   }
 
   onItemTap(event) {
-    console.log('onItemTap');
+    // console.log('onItemTap');
   }
 
 }

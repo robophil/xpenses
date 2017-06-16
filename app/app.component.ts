@@ -66,10 +66,10 @@ export class AppComponent implements OnInit {
     })
 
     this.router.events
-    .do(({ url }: any) => console.log('-', url))
+    // .do(({ url }: any) => console.log('-', url))
     .map(({ url }: any) => url.split('/')[1]).distinctUntilChanged()
     .subscribe((page) => {
-      console.log('+', page)
+      // console.log('+', page)
       // console.log(x.url)
     })
     this.items = [

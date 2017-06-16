@@ -1,9 +1,36 @@
-<StackLayout class="page" *ngIf="data$ | async as data">
+<StackLayout class="page">
   <ActionBar title="Cycle" class="action-bar">
     <NavigationButton icon="res://ic_arrow_back_white_24dp" (tap)="goBack($event)"></NavigationButton>
 
     <ActionItem icon="res://ic_person_white"></ActionItem>
   </ActionBar>
 
-  <Label [text]="data | json"></Label>
+  <GridLayout rows="auto, *" *ngIf="data$ | async as data">
+
+    <GridLayout row="0" class="header text-center" rows="auto, *, auto" columns="*, *">
+      <Label row="0" col="0" class="h6 top" text="EXPENSES"></Label>
+      <Label row="0" col="1" class="h6 top" text="BUDGET"></Label>
+
+      <GridLayout class="content" row="1" colSpan="2" columns="*, *">
+        <Label row="0" col="0" class="e" [text]="data.length*20"></Label>
+        <Label row="0" col="1" class="b" [text]="data.length*50"></Label>
+      </GridLayout>
+
+      <Label row="2" colSpan="2" class="h5 bottom" text="YOUR EXPENSES ARE IN GOOD SHAPE"></Label>
+    </GridLayout>
+
+    <!--<FAB row="1" icon="res://ic_add_white" rippleColor="#f1f1f1" class="fab-button"></FAB>-->
+
+    <AbsoluteLayout row="1" class="content-body">
+      <ListView [items]="data" (loaded)="onLoaded(event)" (itemLoading)="onItemLoading(event)" (itemTap)="onItemTap(event)" class="list-group">
+        <ng-template let-item="item" let-odd="odd" let-even="even">
+          <GridLayout class="list-group-item" columns="*, auto">
+            <Label [text]="item.name" class="h5"></Label>
+            <Label [text]="item.value" class="h5 cost"></Label>
+          </GridLayout>
+        </ng-template>
+      </ListView>
+    </AbsoluteLayout>
+
+  </GridLayout>
 </StackLayout>
