@@ -12,6 +12,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/distinctUntilChanged';
 import { BottomBar, BottomBarItem, TITLE_STATE, SelectedIndexChangedEventData, Notification } from 'nativescript-bottombar';
+import { SwissArmyKnife } from 'nativescript-swiss-army-knife';
 
 registerElement('BottomBar', () => BottomBar);
 registerElement("CardView", () => require("nativescript-cardview").CardView);
@@ -89,9 +90,13 @@ export class AppComponent implements OnInit {
 
   tabSelected(args: SelectedIndexChangedEventData) {
     const page = (this.pages[args.newIndex]).toLowerCase();
-    console.log(page);
+    // console.log(page);
     this.router.navigateByUrl('/'+page, { queryParams: { root: true } });
     // this.router.navigateByUrl('/'+page);
     // this.router.navigate(['/'+page], { replaceUrl: false });
+  }
+
+  ngAfterViewInit() {
+    SwissArmyKnife.setAndroidStatusBarColor('#e91e63');
   }
 }
