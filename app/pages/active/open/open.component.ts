@@ -12,6 +12,10 @@ import { topmost } from "ui/frame"
   styleUrls: ["./open.css"],
 })
 export class ActiveOpenComponent implements OnInit, AfterViewInit {
+  public cycle: {
+    expense: number;
+    budget: number;
+  };
   public data$: Observable<{
     id: number,
     name: string,
@@ -21,8 +25,19 @@ export class ActiveOpenComponent implements OnInit, AfterViewInit {
   constructor(private router: RouterExtensions) {
   }
 
+  getIsExpenseOk() {
+    return this.cycle.budget > this.cycle.expense;
+  }
+
+  addExpense() {
+
+  }
+
+  doneCycle() {
+
+  }
+
   goBack() {
-    // this.router.back();
     this.router.backToPreviousPage();
   }
 
@@ -39,9 +54,10 @@ export class ActiveOpenComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    const rand = () => Math.floor(Math.random() * 1000);
+    this.cycle = { expense: rand(), budget: rand() };
     this.data$ = Observable.of(2).map(o => {
       const data = [];
-      const rand = () => Math.floor(Math.random() * 1000);
 
       for (let i = 10; i > 0; i--) {
         const id = rand(), name = 'category_'+rand(), value = rand();

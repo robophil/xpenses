@@ -44,7 +44,9 @@
   .bottom {
     padding: 10;
     color: white;
-    background-color: $success-accent;
+
+    &.s { background-color: $success-accent; }
+    &.r { background-color: $primary-accent; }
   }
 }
 
