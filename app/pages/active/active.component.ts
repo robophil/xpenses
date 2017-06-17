@@ -24,14 +24,5 @@ export class ActiveComponent implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
-  ngAfterViewInit() {
-    this.page = <Page>topmost().currentPage;
-    if(this.page)  {
-      // this.page.actionBarHidden = true;
-      this.page.statusBarStyle = 'light';
-    }
-    else {
-      console.dir(this.page);
-    }
-  }
+  ngAfterViewInit() {}
 }

@@ -1,0 +1,7 @@
+<slides #slidesEl [pageIndicators]="true">
+
+  <slide *ngFor="let item of data">
+    <Cycle (create)="createCycle()" [data]="item"></Cycle>
+  </slide>
+
+</slides>

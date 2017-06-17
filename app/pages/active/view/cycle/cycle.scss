@@ -1,0 +1,162 @@
+@import '../../../../custom.css';
+@import 'app/variables.scss';
+@import 'app/fonts.scss';
+
+.action-bar {
+  border-color: transparent;
+  border-width: 1;
+}
+
+
+.create-bar {
+  background-color: #f6f6f6;
+  margin-top: 40;
+  border-radius: 10;
+  width: 250;
+  height: 250;
+  border-color: #e6e6e6;
+  border-width: 2;
+
+  Label {
+    color: #e6e6e6;
+    vertical-align: center;
+    font-size: 65;
+    font-weight: 100;
+    text-align: center;
+
+    &.small {
+      font-size: 25;
+    }
+  }
+}
+
+.header {
+  // background-image: linear-gradient(left, rgba(255,0,0,0), rgba(255,0,0,1));;
+  background-color: $primary-accent;
+  text-align: center;
+
+  .content {
+    padding: 0 10 35 10;
+    horizontal-align: center;
+
+    Label {
+      color: white;
+      font-size: 12;
+      vertical-align: center;
+
+      &.big {
+        font-size: 50;
+      }
+      &.prefix {
+        font-size: 20;
+      }
+    }
+  }
+
+  .top {
+    Label {
+      padding: 10;
+      border-bottom-width: 1;
+    }
+
+    @mixin accent($color) {
+      color: $color;
+      background-color: lighten($color, 46);
+      border-color: lighten($color, 40);
+    }
+
+    .s { @include accent($success-accent); }
+    .r { @include accent($primary-accent); }
+  }
+
+  .bottom {
+    border-width: 1 0;
+    border-color: #e6e6e6;
+    background-color: white;
+    text-align: center;
+
+    .container {
+      padding-top: 10;
+      padding-bottom: 0;
+      width: 100%;
+    }
+
+    .a {
+      border-color: #e6e6e6;
+      border-right-width: 1;
+    }
+    .b { }
+
+    Label {
+      color: $light-gray;
+      font-size: 12;
+      vertical-align: center;
+
+      &.t {
+        padding-bottom: 10;
+        padding-top: 0;
+      }
+
+      &.big {
+        color: gray;
+        font-size: 25;
+      }
+
+      &.prefix {
+        font-size: 18;
+      }
+    }
+  }
+
+  .footer {
+    text-align: left;
+    background-color: #f6f6f6;
+    border-bottom-width: 1;
+    border-color: #e6e6e6;
+
+    Label {
+      padding: 5;
+      font-size: 12;
+      color: $light-gray;
+    }
+  }
+}
+
+.content-body {
+  .list-group {
+    height: 100%;
+    width: 100%;
+
+    .list-group-item {
+      padding: 15;
+
+      Label {
+        vertical-align: center;
+        font-size: 17;
+        color: gray;
+
+        &.small {
+          font-size: 12;
+          color: $light-gray;
+        }
+
+        &.cost {
+          horizontal-align: right;
+          font-size: 23;
+        }
+
+        &.prefix {
+          font-size: 15;
+        }
+      }
+
+      .btn {
+        width: 35;
+        height: 35;
+        padding: 0;
+        border-width: 0;
+      }
+    }
+  }
+}
+

@@ -9,21 +9,23 @@ import { SlidesComponent } from 'nativescript-ngx-slides/slides/app/slides/slide
 })
 export class ActiveSlidesComponent implements OnInit, AfterViewInit {
   @Input() public data: any[];
-  @Output() public create = new EventEmitter<void>();
-  @Output() public open = new EventEmitter<void>();
   @ViewChild('slidesEl') slides: SlidesComponent;
-
-  openCycle() {
-    this.open.emit();
-  }
+  @Output() public create = new EventEmitter<void>();
 
   createCycle() {
     this.create.emit();
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    // Add create button Before
+    this.data.unshift({});
+    // Add create button After
+    if(this.data.length) {
+      this.data.push({});
+    }
+  }
 
   ngAfterViewInit() {
-    this.slides.GoToSlide(this.data.length); // Switch to the last added active slide
+    this.slides.GoToSlide(this.data.length-2); // Switch to the last added active slide
   }
 }

@@ -3,7 +3,7 @@ import { NativeScriptRouterModule } from 'nativescript-angular/router';
 import { ActiveComponent } from './active.component';
 import { ActiveCreateComponent } from './create/create.component';
 import { ActiveViewComponent } from './view/view.component';
-import { ActiveOpenComponent } from './open/open.component';
+// import { ActiveOpenComponent } from './open/open.component';
 
 @NgModule({
   imports: [
@@ -11,10 +11,10 @@ import { ActiveOpenComponent } from './open/open.component';
       { path: 'active', component: ActiveComponent, children: [
         { path: '', component: ActiveViewComponent },
         { path: 'create', component: ActiveCreateComponent },
-        { path: 'open', children: [
-        // { path: 'open', component: ActiveOpenComponent, children: [
-          { path: ':id', component: ActiveOpenComponent },
-        ]},
+        // { path: 'open', children: [
+        // // { path: 'open', component: ActiveOpenComponent, children: [
+        //   { path: ':id', component: ActiveOpenComponent },
+        // ]},
       ]}
     ])
   ],

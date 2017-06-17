@@ -13,7 +13,9 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/distinctUntilChanged';
 import { BottomBar, BottomBarItem, TITLE_STATE, SelectedIndexChangedEventData, Notification } from 'nativescript-bottombar';
 import { SwissArmyKnife } from 'nativescript-swiss-army-knife';
+// import * as R from 'nativescript-gradient';
 
+// registerElement('BottomBar', () => BottomBar);
 registerElement('BottomBar', () => BottomBar);
 registerElement("CardView", () => require("nativescript-cardview").CardView);
 registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
