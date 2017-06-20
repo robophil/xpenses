@@ -4,13 +4,17 @@
     <ActionItem (tap)="onCreate(field1.text, field2.text)" icon="res://ic_save_white"></ActionItem>
   </ActionBar>
 
-  <ScrollView row="0" col="0">
-    <StackLayout class="form" padding="20 10">
-      <GridLayout class="input-field" rows="auto, auto", columns="3*, *">
-        <Label class="h1 text-center" text="Budget for today" colSpan="2" textWrap="true"></Label>
-        <TextField row="1" #field1 autocorrect="false" (returnPress)="return;" padding="10 5" class="input input-border"></TextField>
-        <TextField row="1" col="2" #field2 maxLength="2" autocorrect="false" (returnPress)="return;" padding="10 5" class="input input-border"></TextField>
+  <GridLayout rows="auto, *, auto">
+    <Label class="top" text="Budget for this cycle"></Label>
+
+    <StackLayout row="1" class="form">
+      <GridLayout class="input-field" rows="auto, auto" , columns="3*, auto, 2*">
+        <TextField row="1" #field1 autocorrect="false" (returnPress)="return;" class="input input-border l"></TextField>
+        <label row="1" col="1" class="mid" text=":"></label>
+        <TextField row="1" col="2" #field2 maxLength="2" autocorrect="false" (returnPress)="return;" class="input input-border r"></TextField>
       </GridLayout>
     </StackLayout>
-  </ScrollView>
+
+    <Label row="2" class="bottom" text="Currency is currently in {{ sign }}"></Label>
+  </GridLayout>
 </StackLayout>

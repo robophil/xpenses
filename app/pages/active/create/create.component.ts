@@ -7,7 +7,7 @@ import { topmost } from "ui/frame"
 import { Store } from "@ngrx/store";
 import { AppState } from "../../../reducers";
 import { CyclesActions } from '../../../actions/cycles.action';
-
+import { sign } from "../../../services/cycles.service";
 @Component({
   moduleId: module.id,
   selector: "active-create",
@@ -15,6 +15,7 @@ import { CyclesActions } from '../../../actions/cycles.action';
   styleUrls: ["./create.css"],
 })
 export class ActiveCreateComponent implements OnInit, AfterViewInit {
+  public sign = sign;
 
   constructor(
     private store: Store<AppState>,
@@ -26,6 +27,8 @@ export class ActiveCreateComponent implements OnInit, AfterViewInit {
   onCreate(budget1, budget2) {
     const budget = (+budget1)+((+budget2)/100);
     this.store.dispatch(this.cycles.create({ budget }));
+    // alert('yay');
+    setTimeout(() => this.router.navigateByUrl('/active'), 2000);
   }
 
   goBack() {

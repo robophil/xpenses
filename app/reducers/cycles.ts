@@ -31,7 +31,7 @@ export function cycles(state: CyclesState = initialState, { type, payload }: Act
 
     case CyclesActions.CREATE_COMPLETE: {
       const data = Object.assign({}, state.data, { [payload.id]: payload });
-      const ids = [...state.ids, payload.id];
+      const ids = [payload.id, ...state.ids];
       return Object.assign({}, state, { date: payload.date, selected: payload.id, status: true, ids, data });
     }
 

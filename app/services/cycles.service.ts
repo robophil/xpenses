@@ -4,7 +4,7 @@ import "rxjs/Rx";
 
 import { CyclesModel } from '../models/cycle.model';
 
-const sign = '₦';
+export const sign = '₦';
 const round = (num) => +(Math.round(+(num + 'e+2'))  + 'e-2');
 const rand = () => (Math.random() * 10000);
 const rand2 = () => Math.floor(Math.random() * 10000);
