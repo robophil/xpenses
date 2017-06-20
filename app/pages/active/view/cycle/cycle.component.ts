@@ -7,7 +7,7 @@ import { Page } from 'ui/page'
 import { topmost } from "ui/frame"
 import toLocaleString from '../../../../utils/toLocaleString';
 // import toLocaleString from 'app/utils/toLocaleString';
-import { CycleInterface } from '../../../../models/cycle';
+import { CycleInterface } from '../../../../models/cycle.model';
 
 @Component({
   moduleId: module.id,

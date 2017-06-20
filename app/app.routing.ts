@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
-import { NativeScriptRouterModule } from "nativescript-angular/router";
+import { PreloadAllModules } from '@angular/router';
+import { NativeScriptRouterModule, } from "nativescript-angular/router";
 import { Routes } from "@angular/router";
 import { ActiveModule } from './pages/active';
 import { CategoriesModule } from './pages/categories';
@@ -13,7 +14,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    NativeScriptRouterModule.forRoot(routes),
+    NativeScriptRouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
     ActiveModule,
     CategoriesModule,
     CyclesModule,

@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var effects_1 = require("@ngrx/effects");
+var cycles_effect_1 = require("./cycles.effect");
+exports.EFFECTS = [
+    effects_1.EffectsModule.run(cycles_effect_1.CyclesEffects),
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLHlDQUE4QztBQUM5QyxpREFBZ0Q7QUFFbkMsUUFBQSxPQUFPLEdBQUc7SUFDckIsdUJBQWEsQ0FBQyxHQUFHLENBQUMsNkJBQWEsQ0FBQztDQUNqQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgRWZmZWN0c01vZHVsZSB9IGZyb20gJ0BuZ3J4L2VmZmVjdHMnO1xuaW1wb3J0IHsgQ3ljbGVzRWZmZWN0cyB9IGZyb20gJy4vY3ljbGVzLmVmZmVjdCc7XG5cbmV4cG9ydCBjb25zdCBFRkZFQ1RTID0gW1xuICBFZmZlY3RzTW9kdWxlLnJ1bihDeWNsZXNFZmZlY3RzKSxcbl07XG4iXX0=

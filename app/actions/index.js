@@ -1,0 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var cycles_action_1 = require("./cycles.action");
+exports.ACTIONS = [
+    cycles_action_1.CyclesActions
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLGlEQUFnRDtBQUVuQyxRQUFBLE9BQU8sR0FBRztJQUNyQiw2QkFBYTtDQUNkLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDeWNsZXNBY3Rpb25zIH0gZnJvbSBcIi4vY3ljbGVzLmFjdGlvblwiO1xuXG5leHBvcnQgY29uc3QgQUNUSU9OUyA9IFtcbiAgQ3ljbGVzQWN0aW9uc1xuXTtcblxuIl19

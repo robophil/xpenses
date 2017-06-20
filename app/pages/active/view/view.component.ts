@@ -6,7 +6,7 @@ import { Page } from 'ui/page'
 import { topmost } from "ui/frame"
 import { SlidesModule } from 'nativescript-ngx-slides';
 import { SlidesComponent } from 'nativescript-ngx-slides/slides/app/slides/slides.component';
-import { CycleInterface } from '../../../models/cycle';
+import { CycleInterface } from '../../../models/cycle.model';
 
 const transition = { name: "slide", duration: 300 };
 

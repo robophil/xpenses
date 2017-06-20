@@ -7,10 +7,17 @@ import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
 import { NativeScriptAnimationsModule } from "nativescript-angular/animations";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
+import { NgrxDebugger } from "./ngrx-debugger";
+
+import { STORE } from './reducers';
+import { SERVICES } from './services';
+import { EFFECTS } from './effects';
+import { ACTIONS } from './actions';
 
 @NgModule({
   declarations: [
     AppComponent,
+    NgrxDebugger,
   ],
   bootstrap: [AppComponent],
   imports: [
@@ -21,11 +28,16 @@ import { AppComponent } from "./app.component";
     AppRoutingModule,
     TNSFontIconModule.forRoot({
       'fa': './assets/font-awesome.css',
-      // 'mat': './fonts/Google/material-icons.css',
+      'mdi': './fonts/Google/material-icons.css',
       // 'ion': './assets/ionicons.css'
     }),
+    ...STORE,
+    ...EFFECTS,
   ],
-  providers: [],
+  providers: [
+    ...SERVICES,
+    ...ACTIONS,
+  ],
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }

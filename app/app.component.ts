@@ -1,4 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild, NgZone } from "@angular/core";
+import { Component, ElementRef, OnInit, OnDestroy, AfterViewInit, ViewChild, NgZone } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { AppState } from "./reducers";
 import { trigger, transition, state, style, animate } from "@angular/animations";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Page } from 'ui/page'
@@ -7,6 +9,7 @@ import { registerElement } from "nativescript-angular/element-registry";
 import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 import { SlideUpDown } from './animation';
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
@@ -14,12 +17,12 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import { BottomBar, BottomBarItem, TITLE_STATE, SelectedIndexChangedEventData, Notification } from 'nativescript-bottombar';
 import { SwissArmyKnife } from 'nativescript-swiss-army-knife';
 // import * as R from 'nativescript-gradient';
+import { getCyclesData } from "./reducers";
 
 // registerElement('BottomBar', () => BottomBar);
 registerElement('BottomBar', () => BottomBar);
 registerElement("CardView", () => require("nativescript-cardview").CardView);
 registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
-
 
 @Component({
   selector: "ns-app",
@@ -36,7 +39,8 @@ registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);
     ])
   ]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
+  public showDebugger = true;
   public title = "xPenses";
   private page: Page;
   private currentPage: string = 'active';
@@ -45,7 +49,9 @@ export class AppComponent implements OnInit {
   public titleState: TITLE_STATE = TITLE_STATE.ALWAYS_SHOW;
   public inactiveColor: string = '#bbbbbb';
   public accentColor: string = '#e91e63';
-  public items: Array<BottomBarItem>;
+  public cyclesCount: number;
+  public items: BottomBarItem[];
+  public Subs: Subscription[] = [];
   public pages = [
     "Categories",
     "Expenses",
@@ -55,18 +61,22 @@ export class AppComponent implements OnInit {
   ];
 
   constructor(
+    private store: Store<AppState>,
     private fonticon: TNSFontIconService,
     private zone: NgZone,
     private route: ActivatedRoute,
     private router: Router,
   ) {
+    this.Subs.push(this.store.let(getCyclesData()).subscribe((data) => {
+      this.cyclesCount = data && data.length;
+    }))
   }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      console.log('params');
+      // console.log('params');
       // debugger
-      console.dir(params);
+      // console.dir(params);
     })
 
     this.router.events
@@ -79,7 +89,7 @@ export class AppComponent implements OnInit {
     this.items = [
       new BottomBarItem(0, this.pages[0], "ic_list_white", "white"),
       new BottomBarItem(1, this.pages[1], "ic_attach_money_white", "white"),
-      new BottomBarItem(2, this.pages[2], "ic_play_circle_outline_white", "white", new Notification("white", "#e91e63", "1")),
+      new BottomBarItem(2, this.pages[2], "ic_play_circle_outline_white", "white", new Notification("white", "#e91e63", ''+this.cyclesCount)),
       new BottomBarItem(3, this.pages[3], "ic_history_white", "white"),
       new BottomBarItem(4, this.pages[4], "ic_info_outline_white", "white"),
     ];
@@ -101,5 +111,9 @@ export class AppComponent implements OnInit {
 
   ngAfterViewInit() {
     SwissArmyKnife.setAndroidStatusBarColor('#a90040');
+  }
+
+  ngOnDestroy() {
+    this.Subs.forEach(sub => sub.unsubscribe());
   }
 }

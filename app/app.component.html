@@ -3,10 +3,15 @@
     <ActionItem icon="res://ic_person_white"></ActionItem>
   </ActionBar>
 
-  <GridLayout rows="*, auto" orientation="vertical">
+  <!--<ns-dock-monitor screenCover="0.5"></ns-dock-monitor>-->
+  <nativescript-store-debugger *ngIf="showDebugger"></nativescript-store-debugger>
+
+  <GridLayout rows="*, auto">
     <router-outlet></router-outlet>
 
     <BottomBar row="1" [items]="items" [hide]="hidden" [titleState]="titleState" (loaded)="tabLoaded($event)" (tabSelected)="tabSelected($event)"
       [inactiveColor]="inactiveColor" [accentColor]="accentColor" colored="true"></BottomBar>
+
   </GridLayout>
+
 </StackLayout>
