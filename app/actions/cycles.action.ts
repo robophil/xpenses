@@ -10,13 +10,13 @@ export class CyclesActions {
   }
 
   static CREATE = '[CYCLES] CREATE';
-  create(args : { content: string }): Action {
-    return { type: CyclesActions.CREATE, payload: { content: args.content } };
+  create({ budget }): Action {
+    return { type: CyclesActions.CREATE, payload: { budget } };
   }
 
   static CREATE_COMPLETE = '[CYCLES] CREATE COMPLETE';
-  create_complete(note): Action {
-    return { type: CyclesActions.CREATE_COMPLETE, payload: note };
+  create_complete(cycle): Action {
+    return { type: CyclesActions.CREATE_COMPLETE, payload: cycle };
   }
 
   static INIT = '[CYCLES] INIT';

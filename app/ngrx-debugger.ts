@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
-  selector: "nativescript-store-debugger",
+  selector: "ns-ngrx-debugger",
   template: `
     <Label class="show" (tap)="show = !show" text="Show Debug Panel"></Label>
     <StackLayout *ngIf="show">

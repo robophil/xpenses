@@ -4,6 +4,11 @@ import "rxjs/Rx";
 
 import { CyclesModel } from '../models/cycle.model';
 
+const sign = '₦';
+const round = (num) => +(Math.round(+(num + 'e+2'))  + 'e-2');
+const rand = () => (Math.random() * 10000);
+const rand2 = () => Math.floor(Math.random() * 10000);
+
 @Injectable()
 export class CyclesService {
 
@@ -11,19 +16,27 @@ export class CyclesService {
     return 0;
   }
 
+  create({ budget }): Observable<CyclesModel> {
+    return Observable.of({
+      id: rand2(),
+      sign,
+      categories: [],
+      expense: this.format(0),
+      budget: this.format(budget),
+      created: new Date
+    });
+  }
+
   format(input) {
     const suffix = input > 1000000 ? 'M' : 'K';
-    const count = +input.toFixed(2);
+    const count = round(+input);
     return { count, suffix };
   }
 
   fetch(params): Observable<CyclesModel[]> {
     return Observable.of(5).map(i => {
       const data = [];
-      const rand = () => (Math.random() * 10000);
-      // const rand = () => Math.floor(Math.random() * 10000);
-      const id = rand();
-      const sign = '₦';
+      const id = rand2();
 
       for (i; i > 0; i--) {
         const expense = this.format(rand());

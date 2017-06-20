@@ -28,4 +28,10 @@ export class CyclesEffects {
     .map(action => action.payload)
     .switchMap(payload => this.cycles.fetch(payload))
     .map(data => this.cyclesActions.init_complete(data))
+
+  @Effect() create$: Observable<Action> = this.actions$
+    .ofType(CyclesActions.CREATE)
+    .map(action => action.payload)
+    .switchMap(payload => this.cycles.create(payload))
+    .map(data => this.cyclesActions.create_complete(data))
 }

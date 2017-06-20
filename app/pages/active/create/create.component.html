@@ -1,8 +1,16 @@
 <StackLayout class="page">
   <ActionBar title="Create Cycle" class="action-bar">
     <NavigationButton icon="res://ic_arrow_back_white_24dp" (tap)="goBack($event)"></NavigationButton>
-    <ActionItem icon="res://ic_person_white"></ActionItem>
+    <ActionItem (tap)="onCreate(field1.text, field2.text)" icon="res://ic_save_white"></ActionItem>
   </ActionBar>
 
-  <Label text="Hello Create" textWrap="true"></Label>
+  <ScrollView row="0" col="0">
+    <StackLayout class="form" padding="20 10">
+      <GridLayout class="input-field" rows="auto, auto", columns="3*, *">
+        <Label class="h1 text-center" text="Budget for today" colSpan="2" textWrap="true"></Label>
+        <TextField row="1" #field1 autocorrect="false" (returnPress)="return;" padding="10 5" class="input input-border"></TextField>
+        <TextField row="1" col="2" #field2 maxLength="2" autocorrect="false" (returnPress)="return;" padding="10 5" class="input input-border"></TextField>
+      </GridLayout>
+    </StackLayout>
+  </ScrollView>
 </StackLayout>
