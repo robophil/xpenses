@@ -5,8 +5,6 @@ import { RouterExtensions, PageRoute } from "nativescript-angular/router";
 import { Observable } from "rxjs/Observable";
 import { Page } from 'ui/page'
 import { topmost } from "ui/frame"
-import toLocaleString from '../../../../utils/toLocaleString';
-// import toLocaleString from 'app/utils/toLocaleString';
 import { CycleInterface } from '../../../../models/cycle.model';
 
 @Component({
@@ -23,10 +21,6 @@ export class CycleComponent implements OnInit, AfterViewInit {
   @Output() public create = new EventEmitter<void>();
 
   constructor(private router: RouterExtensions) {
-  }
-
-  get balance () {
-    return toLocaleString(this.data.budget.count - this.data.expense.count);
   }
 
   createCycle() {

@@ -8,11 +8,17 @@
     <Label class="top" text="Budget for this cycle"></Label>
 
     <StackLayout row="1" class="form">
-      <GridLayout class="input-field" rows="auto, auto" , columns="3*, auto, 2*">
-        <TextField row="1" #field1 autocorrect="false" (returnPress)="return;" class="input input-border l"></TextField>
-        <label row="1" col="1" class="mid" text=":"></label>
-        <TextField row="1" col="2" #field2 maxLength="2" autocorrect="false" (returnPress)="return;" class="input input-border r"></TextField>
+      <GridLayout class="input-field" rows="auto" columns="auto, 3*, auto, 2*">
+        <label col="0" class="mid" [text]="sign"></label>
+        <TextField col="1" #field1 autocorrect="false" (returnPress)="return;" class="input input-border"></TextField>
+        <label col="2" class="mid" text=":"></label>
+        <TextField col="3" #field2 maxLength="2" autocorrect="false" (returnPress)="return;" class="input input-border"></TextField>
       </GridLayout>
+      <StackLayout class="input-field">
+        <ListPicker [items]="items" selectedIndex="0" class="p-15"></ListPicker>
+        <!--<ListPicker [items]="pokemons" selectedIndex="0" (selectedIndexChange)="selectedIndexChanged($event)" class=""></ListPicker>-->
+        <Button (tap)="onChooseDate()" fontSize="13" text="&#xE916; &nbsp; CHOOSE DATE" class="mdi btn"></Button>
+      </StackLayout>
     </StackLayout>
 
     <Label row="2" class="bottom" text="Currency is currently in {{ sign }}"></Label>

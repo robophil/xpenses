@@ -6,10 +6,12 @@
   </ActionBar>
 
   <ng-template #createEl>
-    <StackLayout (tap)="createCycle()" class="create-bar">
-      <Label text="+"></Label>
-      <Label text="CREATE" class="small"></Label>
-    </StackLayout>
+    <GridLayout verticalAlignment="center" rows="*, 2*, *">
+      <StackLayout row="1" (tap)="createCycle()" class="create-bar">
+        <Label text="+" class="text-muted"></Label>
+        <Label text="NEW CYCLE" class="small text-muted"></Label>
+      </StackLayout>
+    </GridLayout>
   </ng-template>
 
   <GridLayout rows="auto, *, 50" *ngIf="data.expense; else createEl">
@@ -17,27 +19,35 @@
     <StackLayout row="0" class="header">
       <GridLayout class="content" rows="auto, auto" columns="auto, auto">
         <Label [text]="data.sign" class="prefix"></Label>
-        <Label col="1" [text]="balance" class="big"></Label>
+        <Label col="1" [text]="data.balance.money" class="big"></Label>
         <Label row="1" colSpan="2" text="CURRENT BALANCE"></Label>
       </GridLayout>
 
-      <GridLayout class="bottom" rows="auto, auto" columns="*, *">
+      <GridLayout class="bottom" rows="auto, auto" columns="*, *, *">
         <StackLayout class="container a">
           <StackLayout orientation="horizontal" horizontalAlignment="center">
             <Label [text]="data.sign" class="prefix"></Label>
-            <Label [text]="data.budget.count" class="big"></Label>
+            <Label [text]="data.budget.money" class="big"></Label>
           </StackLayout>
         </StackLayout>
 
-        <StackLayout class="container b" col="1">
+        <StackLayout class="container a" col="1">
+          <StackLayout orientation="horizontal" horizontalAlignment="center">
+            <Label [text]="data.progress" class="big"></Label>
+            <Label text="%" class="prefix"></Label>
+          </StackLayout>
+        </StackLayout>
+
+        <StackLayout class="container b" col="2">
           <StackLayout orientation="horizontal" horizontalAlignment="center">
             <Label [text]="data.sign" class="prefix"></Label>
-            <Label [text]="data.expense.count" class="big"></Label>
+            <Label [text]="data.expense.money" class="big"></Label>
           </StackLayout>
         </StackLayout>
 
         <Label row="1" col="0" class="t a" text="BUDGET"></Label>
-        <Label row="1" col="1" class="t b" text="EXPENSE"></Label>
+        <Label row="1" col="1" class="t a" text="PROGRESS"></Label>
+        <Label row="1" col="2" class="t b" text="EXPENSE"></Label>
       </GridLayout>
 
       <StackLayout class="footer">

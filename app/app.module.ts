@@ -5,6 +5,7 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
 import { NativeScriptAnimationsModule } from "nativescript-angular/animations";
+import { ModalDialogService } from "nativescript-angular/modal-dialog";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 import { NgrxDebugger } from "./ngrx-debugger";
@@ -35,6 +36,7 @@ import { ACTIONS } from './actions';
     ...EFFECTS,
   ],
   providers: [
+    ModalDialogService,
     ...SERVICES,
     ...ACTIONS,
   ],

@@ -1,18 +1,24 @@
 export interface CycleInterface {
   id?: number,
   sign: string,
+  progress?: number,
+  balance?: {
+    value: number,
+    money: string
+  },
   expense: {
-    count: number,
-    suffix: string
+    value: number,
+    money: string
   },
   budget: {
-    count: number,
-    suffix: string
+    value: number,
+    money: string
   },
   categories: {
     id: number,
     name: string,
     value: number,
+    money: string,
     created: Date
   }[],
   created: Date
@@ -21,18 +27,24 @@ export interface CycleInterface {
 export class CyclesModel implements CycleInterface {
   id?: number;
   sign: string;
+  progress?: number;
+  balance?: {
+    value: number,
+    money: string
+  };
   expense: {
-    count: number;
-    suffix: string;
+    value: number,
+    money: string
   };
   budget: {
-    count: number;
-    suffix: string;
+    value: number,
+    money: string
   };
   categories: {
     id: number;
     name: string;
     value: number;
+    money: string;
     created: Date;
   }[];
   created: Date;

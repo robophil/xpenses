@@ -2,7 +2,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { ActiveComponent } from './active.component';
-import { ActiveCreateComponent } from './create/create.component';
+import { ActiveCreateComponent, DateModalComponent } from './create/create.component';
 import { ActiveRouteModule } from './active-route.module';
 import { SlidesModule } from 'nativescript-ngx-slides';
 import { ActiveViewComponent } from './view/view.component';
@@ -15,6 +15,7 @@ import { ActiveSlidesComponent } from './view/slides/slides.component';
     CycleComponent,
     ActiveCreateComponent,
     ActiveViewComponent,
+    DateModalComponent,
     ActiveSlidesComponent
   ],
   imports: [
@@ -25,6 +26,7 @@ import { ActiveSlidesComponent } from './view/slides/slides.component';
   ],
   exports: [ActiveComponent],
   schemas: [NO_ERRORS_SCHEMA],
+  entryComponents: [DateModalComponent],
   providers: []
 })
 export class ActiveModule { }
