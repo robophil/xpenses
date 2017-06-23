@@ -3,15 +3,13 @@
     <ActionItem icon="res://ic_person_white"></ActionItem>
   </ActionBar>
 
-  <!--<ns-dock-monitor screenCover="0.5"></ns-dock-monitor>-->
-  <ns-ngrx-debugger *ngIf="showDebugger"></ns-ngrx-debugger>
-
-  <GridLayout rows="*, auto">
+  <GridLayout rows="*, auto, auto">
     <router-outlet></router-outlet>
 
-    <BottomBar row="1" [items]="items" [hide]="hidden" [titleState]="titleState" (loaded)="tabLoaded($event)" (tabSelected)="tabSelected($event)"
-      [inactiveColor]="inactiveColor" [accentColor]="accentColor" colored="true"></BottomBar>
+    <ns-ngrx-debugger [hidden]="false" row="1"></ns-ngrx-debugger>
 
+    <BottomBar row="2" [items]="items" [hide]="hidden" [titleState]="titleState" (loaded)="tabLoaded($event)" (tabSelected)="tabSelected($event)"
+      [inactiveColor]="inactiveColor" [accentColor]="accentColor" colored="true"></BottomBar>
   </GridLayout>
 
 </StackLayout>

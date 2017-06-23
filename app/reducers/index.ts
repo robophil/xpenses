@@ -1,7 +1,6 @@
 import { Store as S, StoreModule, Action } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { Observable } from 'rxjs/Observable';
-import { NativeScriptDevToolsMonitors } from "ngrx-devtools-nativescript";
 
 import { combineReducers } from '@ngrx/store';
 import { compose } from '@ngrx/core';
@@ -27,10 +26,7 @@ export function redux(state: any, action: any) {
 }
 
 export const STORE = [
-  NativeScriptDevToolsMonitors,
   StoreModule.provideStore(redux),
-  StoreDevtoolsModule.instrumentStore(),
-  // StoreDevtoolsModule.instrumentStore()
 ];
 
 // Selectors

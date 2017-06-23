@@ -8,7 +8,7 @@ import { NativeScriptAnimationsModule } from "nativescript-angular/animations";
 import { ModalDialogService } from "nativescript-angular/modal-dialog";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
-import { NgrxDebugger } from "./ngrx-debugger";
+import { NSNgRxDebuggerModule } from "ns-ngrx-debugger";
 
 import { STORE } from './reducers';
 import { SERVICES } from './services';
@@ -18,7 +18,6 @@ import { ACTIONS } from './actions';
 @NgModule({
   declarations: [
     AppComponent,
-    NgrxDebugger,
   ],
   bootstrap: [AppComponent],
   imports: [
@@ -27,6 +26,7 @@ import { ACTIONS } from './actions';
     NativeScriptRouterModule,
     NativeScriptAnimationsModule,
     AppRoutingModule,
+    NSNgRxDebuggerModule,
     TNSFontIconModule.forRoot({
       'fa': './assets/font-awesome.css',
       'mdi': './fonts/Google/material-icons.css',

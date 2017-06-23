@@ -19,7 +19,6 @@ import { SwissArmyKnife } from 'nativescript-swiss-army-knife';
 // import * as R from 'nativescript-gradient';
 import { getCyclesData } from "./reducers";
 
-// registerElement('BottomBar', () => BottomBar);
 registerElement('BottomBar', () => BottomBar);
 registerElement("CardView", () => require("nativescript-cardview").CardView);
 registerElement("Fab", () => require("nativescript-floatingactionbutton").Fab);

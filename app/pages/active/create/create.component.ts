@@ -9,27 +9,33 @@ import { Store } from "@ngrx/store";
 import { AppState } from "../../../reducers";
 import { CyclesActions } from '../../../actions/cycles.action';
 import { sign } from "../../../services/cycles.service";
+import { Types, Orientation } from "nativescript-ng-gradient";
 import { ModalDialogService } from "nativescript-angular/directives/dialogs";
-
 
 @Component({
   selector: "my-modal",
   template: `
-    <StackLayout verticalAlignment="center" class="input-field">
-      <DatePicker></DatePicker>
-      <!--<DatePicker [day]="" [month]="" [year]=""></DatePicker>-->
-    </StackLayout>
-    <AbsoluteLayout>
-      <StackLayout width="100%">
-        <Button marginTop="20" color="#e6e6e6" backgroundColor="transparent" horizontalAlignment="right" fontSize="25" text="X" (tap)="close('framework')"></Button>
+    <GridLayout [nsgrad]="gColors" [nsgradOrient]="gOrient" height="100%" verticalAlignment="center" rows="auto, *">
+      <StackLayout  row="1" verticalAlignment="center" class="input-field">
+        <DatePicker></DatePicker>
+        <!--<DatePicker [day]="" [month]="" [year]=""></DatePicker>-->
       </StackLayout>
-    </AbsoluteLayout>
+      <AbsoluteLayout row="1">
+        <StackLayout width="100%">
+          <Button marginTop="20" color="#e6e6e6" backgroundColor="transparent" horizontalAlignment="right" fontSize="25" text="X" (tap)="close('framework')"></Button>
+        </StackLayout>
+      </AbsoluteLayout>
+    </GridLayout>
   `,
 })
 export class DateModalComponent {
-  public items: Array<string>;
+  public gColors = ['#ffffff', '#f6f6f6'];
+  public gOrient = Orientation.TOP_BOTTOM;
 
   public constructor(private params: ModalDialogParams) {
+  }
+
+  ngOnInit() {
   }
 
   public close(res: string) {
