@@ -6,7 +6,7 @@ import { CategoriesComponent } from './categories.component';
 @NgModule({
   imports: [
     NativeScriptRouterModule.forChild([
-      { path: 'categories', component: CategoriesComponent }
+      { path: '', component: CategoriesComponent }
     ])
   ],
   exports: [NativeScriptRouterModule]

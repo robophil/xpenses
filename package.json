@@ -29,6 +29,7 @@
     "@ngrx/store-devtools": "^3.2.4",
     "lodash": "^4.17.4",
     "nativescript-angular": "~3.0.0",
+    "nativescript-animate-sass": "file:///C:\\Users\\JERY\\Desktop\\PHIL\\nativescript-animate-sass",
     "nativescript-bottombar": "^3.0.5",
     "nativescript-cardview": "^2.0.1",
     "nativescript-floatingactionbutton": "^3.0.0",

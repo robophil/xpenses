@@ -6,7 +6,7 @@ import { InfoComponent } from './info.component';
 @NgModule({
   imports: [
     NativeScriptRouterModule.forChild([
-      { path: 'info', component: InfoComponent }
+      { path: '', component: InfoComponent }
     ])
   ],
   exports: [NativeScriptRouterModule]

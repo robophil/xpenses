@@ -1,6 +1,6 @@
-import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
+import { NgModule, NgModuleFactoryLoader, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-import { NativeScriptRouterModule } from 'nativescript-angular/router';
+import { NativeScriptRouterModule, NSModuleFactoryLoader } from 'nativescript-angular/router';
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
@@ -36,6 +36,7 @@ import { ACTIONS } from './actions';
     ...EFFECTS,
   ],
   providers: [
+    { provide: NgModuleFactoryLoader, useClass: NSModuleFactoryLoader },
     ModalDialogService,
     ...SERVICES,
     ...ACTIONS,

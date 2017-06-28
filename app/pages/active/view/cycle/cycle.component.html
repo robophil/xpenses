@@ -1,20 +1,9 @@
 <StackLayout class="page">
   <ActionBar [title]="title" class="action-bar">
-    <ActionItem icon="res://ic_add_white" (tap)="addExpense()"></ActionItem>
     <ActionItem icon="res://ic_done_white_24dp" (tap)="doneCycle()"></ActionItem>
-    <ActionItem [visibility]="hidden ? 'collapsed' : 'visible'" icon="res://ic_add_white" (tap)="addExpense()"></ActionItem>
   </ActionBar>
 
-  <ng-template #createEl>
-    <GridLayout verticalAlignment="center" rows="*, 2*, *">
-      <StackLayout row="1" (tap)="createCycle()" class="create-bar">
-        <Label text="+" class="text-muted"></Label>
-        <Label text="NEW CYCLE" class="small text-muted"></Label>
-      </StackLayout>
-    </GridLayout>
-  </ng-template>
-
-  <GridLayout rows="auto, *, 50" *ngIf="data.expense; else createEl">
+  <GridLayout rows="auto, *, 50">
 
     <StackLayout row="0" class="header">
       <GridLayout class="content" rows="auto, auto" columns="auto, auto">
@@ -25,24 +14,24 @@
 
       <GridLayout class="bottom" rows="auto, auto" columns="*, *, *">
         <StackLayout class="container a">
-          <StackLayout orientation="horizontal" horizontalAlignment="center">
+          <WrapLayout horizontalAlignment="center">
             <Label [text]="data.sign" class="prefix"></Label>
             <Label [text]="data.budget.money" class="big"></Label>
-          </StackLayout>
+          </WrapLayout>
         </StackLayout>
 
         <StackLayout class="container a" col="1">
-          <StackLayout orientation="horizontal" horizontalAlignment="center">
+          <WrapLayout horizontalAlignment="center">
             <Label [text]="data.progress" class="big"></Label>
             <Label text="%" class="prefix"></Label>
-          </StackLayout>
+          </WrapLayout>
         </StackLayout>
 
         <StackLayout class="container b" col="2">
-          <StackLayout orientation="horizontal" horizontalAlignment="center">
+          <WrapLayout horizontalAlignment="center">
             <Label [text]="data.sign" class="prefix"></Label>
             <Label [text]="data.expense.money" class="big"></Label>
-          </StackLayout>
+          </WrapLayout>
         </StackLayout>
 
         <Label row="1" col="0" class="t a" text="BUDGET"></Label>
@@ -61,18 +50,24 @@
         <ng-template let-item="item" let-odd="odd" let-even="even">
           <GridLayout class="list-group-item" columns="*, auto">
             <StackLayout>
-              <Label [text]="item.name" class=""></Label>
-              <Label [text]="item.created | date" class="small"></Label>
+              <Label [text]="item.name" class="item-header"></Label>
+              <Label [text]="item.created | date" class="item-text small"></Label>
             </StackLayout>
-            <StackLayout col="1" orientation="horizontal">
+            <WrapLayout col="1">
               <Label [text]="data.sign" class="prefix"></Label>
               <Label [text]="item.value" class="cost"></Label>
-            </StackLayout>
+            </WrapLayout>
           </GridLayout>
         </ng-template>
       </ListView>
     </StackLayout>
 
     <StackLayout row="2"></StackLayout>
+
+    <AbsoluteLayout row="1" horizontalAlignment="center" verticalAlignment="bottom" marginBottom="100">
+
+      <Button id="newBtn" #newBtn color="white" borderRadius="200" fontSize="13" text="NEW ENTRY" (tap)="addExpense()" class="btn mdi btn-primary btn-rounded-lg"></Button>
+
+    </AbsoluteLayout>
   </GridLayout>
 </StackLayout>

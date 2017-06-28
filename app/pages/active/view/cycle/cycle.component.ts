@@ -4,8 +4,11 @@ import { GestureTypes, SwipeGestureEventData } from "ui/gestures";
 import { RouterExtensions, PageRoute } from "nativescript-angular/router";
 import { Observable } from "rxjs/Observable";
 import { Page } from 'ui/page'
+import { View } from 'ui/core/view';
 import { topmost } from "ui/frame"
 import { CycleInterface } from '../../../../models/cycle.model';
+
+declare const android: any;
 
 @Component({
   moduleId: module.id,
@@ -15,12 +18,15 @@ import { CycleInterface } from '../../../../models/cycle.model';
 })
 export class CycleComponent implements OnInit, AfterViewInit {
   hidden;
+  private page: Page;
   public title = "Cycles";
   @Input() data: CycleInterface;
   @Output() public open = new EventEmitter<void>();
   @Output() public create = new EventEmitter<void>();
+  @ViewChild('newBtn') newBtnEl: ElementRef;
 
   constructor(private router: RouterExtensions) {
+    this.page = topmost().currentPage;
   }
 
   createCycle() {
@@ -33,7 +39,7 @@ export class CycleComponent implements OnInit, AfterViewInit {
   }
 
   addExpense() {
-
+    console.log('add expense');
   }
 
   doneCycle() {
@@ -57,5 +63,13 @@ export class CycleComponent implements OnInit, AfterViewInit {
     // console.log(this.hidden);
   }
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+    const btn = this.page.getViewById('newBtn');
+    // debugger;
+    // drop shadow
+    this.newBtnEl.nativeElement
+    // this.newBtnEl.nativeElement
+    // view
+      // .android.setBackgroundResource(android.R.drawable.dialog_holo_light_frame)
+  }
 }

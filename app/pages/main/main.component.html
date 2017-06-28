@@ -1,0 +1,9 @@
+<GridLayout rows="*, auto" verticalAlignment="stretch">
+
+  <router-outlet></router-outlet>
+
+  <BottomBar row="1" [items]="items" [hide]="hidden" [titleState]="titleState" (loaded)="tabLoaded($event)" (tabSelected)="tabSelected($event)"
+    [inactiveColor]="inactiveColor" [accentColor]="accentColor" colored="true"></BottomBar>
+
+</GridLayout>
+

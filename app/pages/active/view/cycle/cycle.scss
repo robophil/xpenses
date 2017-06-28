@@ -1,4 +1,4 @@
-@import '../../../../custom.css';
+@import '../../../../custom.scss';
 @import 'app/variables.scss';
 @import 'app/fonts.scss';
 
@@ -7,25 +7,6 @@
   border-width: 1;
 }
 
-
-.create-bar {
-  background-color: #f6f6f6;
-  border-radius: 10;
-  width: 250;
-  height: 250;
-  border-color: #e6e6e6;
-  border-width: 2;
-  vertical-align: center;
-
-  Label {
-    font-size: 65;
-    text-align: center;
-
-    &.small {
-      font-size: 12.5;
-    }
-  }
-}
 
 .header {
   // background-image: linear-gradient(left, rgba(255,0,0,0), rgba(255,0,0,1));;
@@ -43,6 +24,7 @@
 
       &.big {
         font-size: 50;
+        font-weight: bold;
       }
       &.prefix {
         font-size: 20;
@@ -96,7 +78,7 @@
 
       &.big {
         color: gray;
-        font-size: 25;
+        font-size: 23;
       }
 
       &.prefix {
@@ -132,18 +114,26 @@
         font-size: 17;
         color: gray;
 
+
+        &.item-header {
+          font-weight: bold;
+          text-transform: lowercase;
+        }
+
         &.small {
-          font-size: 12;
+          font-size: 11.5;
           color: $light-gray;
         }
 
         &.cost {
+          font-weight: 600;
           horizontal-align: right;
-          font-size: 23;
+          vertical-align: center;
+          font-size: 18;
         }
 
         &.prefix {
-          font-size: 15;
+          font-size: 14;
         }
       }
 

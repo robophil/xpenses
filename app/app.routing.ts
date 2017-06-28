@@ -2,14 +2,12 @@ import { NgModule } from "@angular/core";
 import { PreloadAllModules } from '@angular/router';
 import { NativeScriptRouterModule, } from "nativescript-angular/router";
 import { Routes } from "@angular/router";
-import { ActiveModule } from './pages/active';
-import { CategoriesModule } from './pages/categories';
-import { CyclesModule } from './pages/cycles';
-import { ExpensesModule } from './pages/expenses';
-import { InfoModule } from './pages/info';
+import { CreateModule } from './pages/create';
+import { HomeModule } from './pages/home';
+import { MainModule } from './pages/main';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/active', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({
@@ -17,11 +15,9 @@ const routes: Routes = [
     NativeScriptRouterModule.forRoot(routes, {
       preloadingStrategy: PreloadAllModules,
     }),
-    ActiveModule,
-    CategoriesModule,
-    CyclesModule,
-    ExpensesModule,
-    InfoModule,
+    HomeModule,
+    CreateModule,
+    MainModule,
   ],
   exports: [NativeScriptRouterModule]
 })

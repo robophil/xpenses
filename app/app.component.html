@@ -3,13 +3,12 @@
     <ActionItem icon="res://ic_person_white"></ActionItem>
   </ActionBar>
 
-  <GridLayout rows="*, auto, auto">
-    <router-outlet></router-outlet>
+
+  <GridLayout rows="*, auto">
+    <page-router-outlet></page-router-outlet>
 
     <ns-ngrx-debugger [hidden]="false" row="1"></ns-ngrx-debugger>
 
-    <BottomBar row="2" [items]="items" [hide]="hidden" [titleState]="titleState" (loaded)="tabLoaded($event)" (tabSelected)="tabSelected($event)"
-      [inactiveColor]="inactiveColor" [accentColor]="accentColor" colored="true"></BottomBar>
   </GridLayout>
 
 </StackLayout>

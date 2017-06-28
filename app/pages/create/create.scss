@@ -1,6 +1,6 @@
 @import '/app/custom.css';
-@import '../../../variables.scss';
-@import '../../../fonts.scss';
+@import '../../variables.scss';
+@import '../../fonts.scss';
 
 .page {
   background-color: white;
@@ -22,8 +22,11 @@
       text-align: center;
 
       Label {
-        font-size: 35;
         vertical-align: center;
+
+        &.mid, &.h1 {
+          font-size: 35;
+        }
       }
 
       TextField {

@@ -6,7 +6,7 @@ import { ExpensesComponent } from './expenses.component';
 @NgModule({
   imports: [
     NativeScriptRouterModule.forChild([
-      { path: 'expenses', component: ExpensesComponent }
+      { path: '', component: ExpensesComponent }
     ])
   ],
   exports: [NativeScriptRouterModule]

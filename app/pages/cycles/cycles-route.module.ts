@@ -6,7 +6,7 @@ import { CyclesComponent } from './cycles.component';
 @NgModule({
   imports: [
     NativeScriptRouterModule.forChild([
-      { path: 'cycles', component: CyclesComponent }
+      { path: '', component: CyclesComponent }
     ])
   ],
   exports: [NativeScriptRouterModule]

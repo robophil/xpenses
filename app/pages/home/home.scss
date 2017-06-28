@@ -1,0 +1,22 @@
+@import '../../custom.scss';
+@import '../../variables.scss';
+@import '../../fonts.scss';
+@import '~nativescript-animate-sass/src/bounceIn';
+
+.bounceIn {
+  @include bounceIn(2.5s, cubic-bezier(0.1, 0.1, 0.1, 1), true);
+}
+
+.action-bar {
+  border-color: transparent;
+  border-width: 1;
+}
+
+.page {
+  background-color: $primary-accent;
+  text-align: center;
+
+  Label {
+    color: white;
+  }
+}

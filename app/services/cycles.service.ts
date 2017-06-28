@@ -47,7 +47,7 @@ export class CyclesService {
 
         const categories = [];
 
-        for (let j = 2; j > 0; j--) {
+        for (let j = 12; j > 0; j--) {
           const id_2 = round(rand2()), name = 'Category_'+id_2, value = round(rand()), money = toLocaleString(value);
           categories.push({ id: id_2, name, value, money, created: new Date() });
         }

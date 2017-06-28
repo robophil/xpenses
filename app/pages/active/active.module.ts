@@ -2,7 +2,6 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { ActiveComponent } from './active.component';
-import { ActiveCreateComponent, DateModalComponent } from './create/create.component';
 import { ActiveRouteModule } from './active-route.module';
 import { SlidesModule } from 'nativescript-ngx-slides';
 import { ActiveViewComponent } from './view/view.component';
@@ -14,9 +13,7 @@ import { NSGradientDirectiveModule } from "nativescript-ng-gradient";
   declarations: [
     ActiveComponent,
     CycleComponent,
-    ActiveCreateComponent,
     ActiveViewComponent,
-    DateModalComponent,
     ActiveSlidesComponent,
   ],
   imports: [
@@ -28,7 +25,6 @@ import { NSGradientDirectiveModule } from "nativescript-ng-gradient";
   ],
   exports: [ActiveComponent],
   schemas: [NO_ERRORS_SCHEMA],
-  entryComponents: [DateModalComponent],
   providers: []
 })
 export class ActiveModule { }

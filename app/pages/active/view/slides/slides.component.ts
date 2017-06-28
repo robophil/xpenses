@@ -20,16 +20,16 @@ export class ActiveSlidesComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.count = this.data.length;
     // Add create button Before
-    this.data.unshift({});
+    // this.data.unshift({});
     // Add create button After
-    if(this.data.length) {
-      this.data.push({});
-    }
+    // if(this.data.length) {
+    //   this.data.push({});
+    // }
   }
 
   ngAfterViewInit() {
-    if(this.count)
-      this.slides.GoToSlide(1);
+    // if(this.count)
+    //   this.slides.GoToSlide(0);
     // this.slides.GoToSlide(this.data.length-2); // Switch to the last added active slide
   }
 }
