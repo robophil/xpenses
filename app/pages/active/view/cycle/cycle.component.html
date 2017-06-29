@@ -1,15 +1,23 @@
 <StackLayout class="page">
   <ActionBar [title]="title" class="action-bar">
+    <ActionItem icon="res://ic_add_white_24dp" (tap)="addExpense()"></ActionItem>
     <ActionItem icon="res://ic_done_white_24dp" (tap)="doneCycle()"></ActionItem>
   </ActionBar>
 
   <GridLayout rows="auto, *, 50">
 
     <StackLayout row="0" class="header">
-      <GridLayout class="content" rows="auto, auto" columns="auto, auto">
+      <GridLayout class="content" rows="auto, auto, auto" columns="auto, auto">
         <Label [text]="data.sign" class="prefix"></Label>
         <Label col="1" [text]="data.balance.money" class="big"></Label>
         <Label row="1" colSpan="2" text="CURRENT BALANCE"></Label>
+
+        <WrapLayout row="2" colSpan="2" col="1" *ngIf="hasNext() || hasPrev()" class="fade p-t-10 p-b-15 m-t-25 m-b-10 text-center m-y-auto m-x-auto pulse">
+          <Label [class.text-muted]="!hasPrev()" fontSize="12" class="mdi" text="&#xE5C4;"></Label>
+          <Label class="font-italic" text=" SWIPE " fontSize="10"></Label>
+          <Label [class.text-muted]="!hasNext()" fontSize="12" class="mdi" text="&#xE5C8;"></Label>
+        </WrapLayout>
+
       </GridLayout>
 
       <GridLayout class="bottom" rows="auto, auto" columns="*, *, *">
@@ -39,9 +47,13 @@
         <Label row="1" col="2" class="t b" text="EXPENSE"></Label>
       </GridLayout>
 
-      <StackLayout class="footer">
+      <GridLayout columns="auto, *" class="footer p-l-10 p-r-10">
         <Label text="EXPENSE HISTORY"></Label>
-      </StackLayout>
+        <WrapLayout col="1" class="pull-right">
+          <Label [text]="total" class="font-weight-bold"></Label>
+          <Label [text]="'ITEM' + (total > 1 ? 'S':'')" class=""></Label>
+        </WrapLayout>
+      </GridLayout>
     </StackLayout>
 
     <StackLayout row="1" class="content-body">
@@ -53,9 +65,9 @@
               <Label [text]="item.name" class="item-header"></Label>
               <Label [text]="item.created | date" class="item-text small"></Label>
             </StackLayout>
-            <WrapLayout col="1">
+            <WrapLayout col="1" class="cost m-y-auto">
               <Label [text]="data.sign" class="prefix"></Label>
-              <Label [text]="item.value" class="cost"></Label>
+              <Label [text]="item.value" class="main"></Label>
             </WrapLayout>
           </GridLayout>
         </ng-template>
@@ -64,10 +76,5 @@
 
     <StackLayout row="2"></StackLayout>
 
-    <AbsoluteLayout row="1" horizontalAlignment="center" verticalAlignment="bottom" marginBottom="100">
-
-      <Button id="newBtn" #newBtn color="white" borderRadius="200" fontSize="13" text="NEW ENTRY" (tap)="addExpense()" class="btn mdi btn-primary btn-rounded-lg"></Button>
-
-    </AbsoluteLayout>
   </GridLayout>
 </StackLayout>

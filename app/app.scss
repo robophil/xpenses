@@ -1,4 +1,4 @@
-@import './custom.css';
+@import './custom.scss';
 @import './variables.scss';
 @import './fonts.scss';
 
@@ -16,3 +16,6 @@
   }
 }
 
+Label, TextView, TextField, Button {
+  font-family: 'Roboto-Regular';
+}

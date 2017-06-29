@@ -1,6 +1,11 @@
-@import '../../../../custom.scss';
+@import 'app/custom.scss';
 @import 'app/variables.scss';
 @import 'app/fonts.scss';
+@import '~nativescript-animate-sass/src/fadeIn';
+
+.fadeIn {
+  @include fadeIn(2.5s, cubic-bezier(0.1, 0.1, 0.1, 1), true);
+}
 
 .action-bar {
   border-color: transparent;
@@ -14,7 +19,7 @@
   text-align: center;
 
   .content {
-    padding: 0 10 35 10;
+    padding: 0 10 0 10;
     horizontal-align: center;
 
     Label {
@@ -124,15 +129,15 @@
           font-size: 11.5;
           color: $light-gray;
         }
+      }
 
-        &.cost {
+      .cost {
+        font-size: 18;
+
+        .main {
           font-weight: 600;
-          horizontal-align: right;
-          vertical-align: center;
-          font-size: 18;
         }
-
-        &.prefix {
+        .prefix {
           font-size: 14;
         }
       }

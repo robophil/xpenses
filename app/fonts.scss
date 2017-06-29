@@ -8,5 +8,14 @@
 }
 .mdi {
   font-family: 'MaterialIcons-Regular';
-  font-size: 24px;
+  font-size: 36px;
 }
+
+@mixin roboto($type: 'Light') {
+  font-family: 'Roboto-'+$type;
+}
+.robo-l { @include roboto('Light'); }
+.robo-i { @include roboto('Italic'); }
+.robo-b { @include roboto('Bold'); }
+.robo-r { @include roboto('Regular'); }
+.robo-t { @include roboto('Thin'); }

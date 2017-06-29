@@ -35,7 +35,7 @@ export class CyclesService {
   }
 
   fetch(params): Observable<CyclesModel[]> {
-    return Observable.of(2).map(i => {
+    return Observable.of(3).map(i => {
       const data = [];
       const id = rand2();
 

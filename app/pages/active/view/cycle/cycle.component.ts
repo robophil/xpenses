@@ -20,10 +20,11 @@ export class CycleComponent implements OnInit, AfterViewInit {
   hidden;
   private page: Page;
   public title = "Cycles";
+  @Input() total: number;
+  @Input() position: number;
   @Input() data: CycleInterface;
   @Output() public open = new EventEmitter<void>();
   @Output() public create = new EventEmitter<void>();
-  @ViewChild('newBtn') newBtnEl: ElementRef;
 
   constructor(private router: RouterExtensions) {
     this.page = topmost().currentPage;
@@ -58,18 +59,20 @@ export class CycleComponent implements OnInit, AfterViewInit {
     // console.log('onItemTap');
   }
 
+  hasNext() {
+    return this.position < this.total;
+  }
+
+  hasPrev() {
+    return this.position != 1;
+  }
+
+
   ngOnInit() {
     this.hidden = this.data.expense ? false : true;
     // console.log(this.hidden);
   }
 
   ngAfterViewInit() {
-    const btn = this.page.getViewById('newBtn');
-    // debugger;
-    // drop shadow
-    this.newBtnEl.nativeElement
-    // this.newBtnEl.nativeElement
-    // view
-      // .android.setBackgroundResource(android.R.drawable.dialog_holo_light_frame)
   }
 }

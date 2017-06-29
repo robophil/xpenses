@@ -5,7 +5,7 @@ import { registerElement } from "nativescript-angular/element-registry";
 import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 import { SwissArmyKnife } from 'nativescript-swiss-army-knife';
 
-// registerElement('Ripple', () => require('nativescript-ripple').Ripple);
+registerElement('Ripple', () => require('nativescript-ripple').Ripple);
 registerElement('BottomBar', () => require('nativescript-bottombar').BottomBar);
 registerElement('CardView', () => require('nativescript-cardview').CardView);
 registerElement('Fab', () => require('nativescript-floatingactionbutton').Fab);
