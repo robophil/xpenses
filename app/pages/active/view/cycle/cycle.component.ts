@@ -1,4 +1,4 @@
-import { Component, EventEmitter, ElementRef, Input, Output, ViewChild, OnInit, AfterViewInit, NgZone } from "@angular/core";
+import { Component, ViewContainerRef, EventEmitter, ElementRef, Input, Output, ViewChild, OnInit, AfterViewInit, NgZone } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { GestureTypes, SwipeGestureEventData } from "ui/gestures";
 import { RouterExtensions, PageRoute } from "nativescript-angular/router";
@@ -7,6 +7,8 @@ import { Page } from 'ui/page'
 import { View } from 'ui/core/view';
 import { topmost } from "ui/frame"
 import { CycleInterface } from '../../../../models/cycle.model';
+import { ModalDialogService } from 'nativescript-angular/modal-dialog';
+import { AddCategoryComponent } from "../add-category/add-category.component";
 
 declare const android: any;
 
@@ -24,14 +26,14 @@ export class CycleComponent implements OnInit, AfterViewInit {
   @Input() position: number;
   @Input() data: CycleInterface;
   @Output() public open = new EventEmitter<void>();
-  @Output() public create = new EventEmitter<void>();
+  @Output() public create = new EventEmitter<{ id, amount, category }>();
 
-  constructor(private router: RouterExtensions) {
+  constructor(
+    private router: RouterExtensions,
+    private modal: ModalDialogService,
+    private vcRef: ViewContainerRef,
+    ) {
     this.page = topmost().currentPage;
-  }
-
-  createCycle() {
-    this.create.emit();
   }
 
   getIsExpenseOk() {
@@ -40,7 +42,14 @@ export class CycleComponent implements OnInit, AfterViewInit {
   }
 
   addExpense() {
-    console.log('add expense');
+    let options = {
+      context: {},
+      fullscreen: true,
+      viewContainerRef: this.vcRef
+    };
+    this.modal.showModal(AddCategoryComponent, options).then(({ amount, category}) => {
+      this.create.emit({ id: this.data.id, amount, category });
+    });
   }
 
   doneCycle() {

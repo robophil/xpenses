@@ -6,24 +6,28 @@ import { ActiveRouteModule } from './active-route.module';
 import { SlidesModule } from 'nativescript-ngx-slides';
 import { ActiveViewComponent } from './view/view.component';
 import { CycleComponent } from './view/cycle/cycle.component';
-import { ActiveSlidesComponent } from './view/slides/slides.component';
+import { AddCategoryComponent } from "./view/add-category/add-category.component";
 import { NSGradientDirectiveModule } from "nativescript-ng-gradient";
+import { ModalModule } from './../../components/modal';
+
 
 @NgModule({
   declarations: [
     ActiveComponent,
     CycleComponent,
     ActiveViewComponent,
-    ActiveSlidesComponent,
+    AddCategoryComponent
   ],
   imports: [
     NativeScriptModule,
     NativeScriptFormsModule,
     ActiveRouteModule,
     NSGradientDirectiveModule,
+    ModalModule,
     SlidesModule
   ],
   exports: [ActiveComponent],
+  entryComponents: [AddCategoryComponent],
   schemas: [NO_ERRORS_SCHEMA],
   providers: []
 })

@@ -35,8 +35,12 @@ export class ActiveViewComponent implements OnInit, AfterViewInit {
     this.router.navigateByUrl('/active/open/', { transition });
   }
 
-  createCycle() {
-    this.router.navigateByUrl('/create', { transition });
+  createExpense(params) {
+  // createExpense({ id, amount, category }) {
+    console.log('create yay!');
+    console.dir(params);
+    // this.store.dispatch(this.actions.create({ name }));
+    // this.router.navigateByUrl('/create', { transition });
   }
 
   ngOnInit(){

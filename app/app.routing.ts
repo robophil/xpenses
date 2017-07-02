@@ -8,7 +8,8 @@ import { MainModule } from './pages/main';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'create', pathMatch: 'full' },
-  { path: '', redirectTo: 'main/categories', pathMatch: 'full' },
+  { path: '', redirectTo: 'main/active', pathMatch: 'full' },
+  // { path: '', redirectTo: 'main/categories', pathMatch: 'full' },
   // { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

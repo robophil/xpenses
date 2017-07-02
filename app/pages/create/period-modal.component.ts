@@ -4,7 +4,7 @@ import { ModalDialogParams } from "nativescript-angular/directives/dialogs";
 @Component({
   selector: "period-modal",
   template: `
-    <Modal [align]="center" (close)="close($event)">
+    <Modal (close)="close($event)">
       <StackLayout row="1" verticalAlignment="center" class="input-field">
         <ListPicker [items]="items" selectedIndex="0" (selectedIndexChange)="selectedIndexChanged($event)" class="p-30"></ListPicker>
 

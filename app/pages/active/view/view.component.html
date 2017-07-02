@@ -1,7 +1,13 @@
 <GridLayout row="0" rows="*">
 
   <ng-container *ngIf="data$ | async as data">
-    <active-slides [data]="data" (create)="createCycle($event)"></active-slides>
+
+    <slides [pageIndicators]="true">
+      <slide *ngFor="let item of data; let i = index">
+        <Cycle (create)="createExpense($event)" [position]="i+1" [total]="data.length" [data]="item"></Cycle>
+      </slide>
+    </slides>
+
   </ng-container>
 
 </GridLayout>

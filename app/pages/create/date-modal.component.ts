@@ -4,7 +4,7 @@ import { ModalDialogParams } from "nativescript-angular/directives/dialogs";
 @Component({
   selector: "date-modal",
   template: `
-    <Modal [align]="center" (close)="close($event)">
+    <Modal (close)="close($event)">
       <StackLayout row="1" verticalAlignment="center" class="input-field">
         <DatePicker (dateChange)="onDateChanged($event)"></DatePicker>
         <Button fontSize="13" color="white" (tap)="onSelect()" class="mdi btn btn-primary" text="&#xE5CA; &nbsp; SELECT"></Button>
