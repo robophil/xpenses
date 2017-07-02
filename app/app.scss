@@ -16,6 +16,8 @@
   }
 }
 
-Label, TextView, TextField, Button {
-  font-family: 'Roboto-Regular';
+Label, TextView, TextField, Button, .action-bar {
+  // @include roboto('Regular');
+  @include sans('Light');
+  // @include sans('Regular');
 }

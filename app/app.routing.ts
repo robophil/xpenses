@@ -7,7 +7,9 @@ import { HomeModule } from './pages/home';
 import { MainModule } from './pages/main';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  // { path: '', redirectTo: 'create', pathMatch: 'full' },
+  { path: '', redirectTo: 'main/categories', pathMatch: 'full' },
+  // { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -35,7 +35,7 @@ export class CreateComponent implements OnInit, AfterViewInit {
     this.store.dispatch(this.cycles.create({ budget }));
     alert('SUCCESSFULLY CREATED').then(res => {
       console.dir(res);
-      this.router.navigateByUrl('/active');
+      this.router.navigateByUrl('/main/active');
     });
     // setTimeout(() => this.router.navigateByUrl('/active'), 2000);
   }

@@ -6,27 +6,40 @@
   <GridLayout rows="auto, *, auto">
     <ScrollView row="1" height="100%">
 
-      <GridLayout class="form" rows="*, auto">
+      <GridLayout class="form" rows="*, auto, auto">
 
-        <GridLayout class="input-field" rows="auto, auto, auto" columns="3*, auto, *">
-          <Label colSpan="3" class="h5" text="CREATE A BUDGET FOR THIS CYCLE"></Label>
-          <label row="1" colSpan="3" class="h1 text-muted" [text]="sign"></label>
+        <StackLayout class="input-field m-b-30">
+          <Label class="h5 text-center text-muted" text="CREATE A BUDGET FOR THIS CYCLE"></Label>
+        </StackLayout>
 
-          <TextField row="2" #field1 autocorrect="false" keyboardType="number" returnKeyType="next" (returnPress)="return;" class="input input-border"></TextField>
-          <label row="2" col="1" class="mid" text=":"></label>
-          <TextField row="2" col="2" #field2 maxLength="2" autocorrect="false" keyboardType="number" returnKeyType="next" (returnPress)="return;" class="input input-border"></TextField>
-        </GridLayout>
+        <FlexboxLayout row="1" class="input-field m-y-20">
+          <label width="25" class="text-center text-muted" [text]="sign"></label>
+          <TextField flexGrow="3" #field1 autocorrect="false" keyboardType="number" returnKeyType="next" (returnPress)="return;" class="input"></TextField>
+          <label class="mid" text=":"></label>
+          <TextField flexGrow="1" #field2 maxLength="2" autocorrect="false" keyboardType="number" returnKeyType="next" (returnPress)="return;"
+            class="input"></TextField>
+        </FlexboxLayout>
 
-        <GridLayout row="1" columns="*, 20, *" class="input-field" marginTop="10">
-          <Button (tap)="onSelectPeriod()" fontSize="13" text="&#xE425; &nbsp; SELECT PERIOD" class="mdi btn"></Button>
-          <Label col="1" fontSize="11" text="OR" textWrap="true"></Label>
-          <Button col="2" (tap)="onChooseDate()" fontSize="13" text="&#xE916; &nbsp; SELECT DATE" class="mdi btn"></Button>
-        </GridLayout>
-
+        <!--<FlexboxLayout row="2" class="btn-field m-t-30">
+          <Button (tap)="onSelectPeriod()" text="&#xE425; &nbsp; SELECT PERIOD" class="mdi btn btn-outline btn-rounded-sm"></Button>
+          <Label width="30" class="text-center" fontSize="11" text="OR" textWrap="true"></Label>
+          <Button (tap)="onChooseDate()" text="&#xE916; &nbsp; SELECT DATE" class="mdi btn btn-outline btn-rounded-sm"></Button>
+        </FlexboxLayout>
+-->
       </GridLayout>
 
     </ScrollView>
 
-    <Button row="2" fontSize="13" (tap)="onCreate(field1.text, field2.text)" class="mdi btn" text="&#xE161; &nbsp; CREATE CYCLE"></Button>
+    <StackLayout row="2">
+
+      <FlexboxLayout class="btn-field p-y-5 p-x-20">
+        <Button (tap)="onSelectPeriod()" text="&#xE425; &nbsp; SELECT PERIOD" class="mdi btn btn-rounded-sm"></Button>
+        <Label width="30" class="text-center" fontSize="10" text="OR" textWrap="true"></Label>
+        <Button (tap)="onChooseDate()" text="&#xE916; &nbsp; SELECT DATE" class="mdi btn btn-rounded-sm"></Button>
+      </FlexboxLayout>
+
+      <Button fontSize="13" color="white" (tap)="onCreate(field1.text, field2.text)" class="mdi btn btn-primary btn-rounded-sm" text="&#xE161; &nbsp; CREATE CYCLE"></Button>
+    </StackLayout>
+    <!--<Button row="2" fontSize="13" color="white" (tap)="onCreate(field1.text, field2.text)" class="mdi btn btn-primary" text="&#xE161; &nbsp; CREATE CYCLE"></Button>-->
   </GridLayout>
 </StackLayout>

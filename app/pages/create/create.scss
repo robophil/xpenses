@@ -17,25 +17,51 @@
     vertical-align: center;
     padding: 20;
 
-    .input-field {
-      margin-bottom: 0;
-      text-align: center;
+    FlexboxLayout.input-field {
+      flex-flow: row wrap;
+      align-items: center;
+      border-width: 1;
+      border-color: lighten($light-gray, 25);
+      margin: 0;
+      padding: 0;
+      border-radius: 5;
 
-      Label {
-        vertical-align: center;
-
-        &.mid, &.h1 {
-          font-size: 35;
-        }
+      .input {
+        padding: 5;
+        font-size: 40;
+        margin: 0;
       }
 
-      TextField {
-        padding: 20;
-        font-size: 50;
+      Label {
+        font-size: 20;
+      }
+    }
 
-        &.l { margin-left: 30; }
-        &.r { margin-right: 30; }
+    FlexboxLayout.btn-field {
+      align-items: center;
+      justify-content: space-between;
+
+      .btn {
+        margin: 0;
+        padding: 0;
+        height: 13;
+        font-size: 13;
+        flex-grow: 1;
       }
     }
   }
 }
+
+    FlexboxLayout.btn-field {
+      align-items: center;
+      justify-content: space-between;
+
+      .btn {
+        margin: 0;
+        padding: 0;
+        height: 13;
+        font-size: 13;
+        flex-grow: 1;
+        background-color: transparent;
+      }
+    }

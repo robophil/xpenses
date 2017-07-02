@@ -3,24 +3,21 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { CreateComponent } from './create.component';
 import { PeriodModalComponent } from './period-modal.component';
+import { ModalModule } from './../../components/modal';
 import { DateModalComponent } from './date-modal.component';
 import { ActiveRouteModule } from './create-route.module';
-import { SlidesModule } from 'nativescript-ngx-slides';
-import { NSGradientDirectiveModule } from "nativescript-ng-gradient";
 
 @NgModule({
   declarations: [
     CreateComponent,
-    DateModalComponent,
     DateModalComponent,
     PeriodModalComponent
   ],
   imports: [
     NativeScriptModule,
     NativeScriptFormsModule,
+    ModalModule,
     ActiveRouteModule,
-    NSGradientDirectiveModule,
-    SlidesModule
   ],
   exports: [CreateComponent],
   schemas: [NO_ERRORS_SCHEMA],

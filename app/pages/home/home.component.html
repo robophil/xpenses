@@ -8,12 +8,12 @@
 
       <StackLayout class="p-10 m-y-auto container">
 
-        <FlexboxLayout alignItems="center" class="header m-b-30 m-x-auto text-center">
+        <FlexboxLayout alignItems="center" class="header m-b-20 m-x-auto text-center">
           <Label text="X" class="h1 X robo-l"></Label>
           <Label text="PENSES" class="h1 robo-l"></Label>
         </FlexboxLayout>
 
-        <StackboxLayout class="m-t-5 m-x-auto text-center body">
+        <StackboxLayout class="m-x-auto text-center body">
           <Label text="IS RUNNING" class="tint"></Label>
         </StackboxLayout>
 
@@ -24,8 +24,8 @@
           </StackLayout>
         </StackLayout>
 
-        <FlexboxLayout alignItems="center" class="m-x-auto text-center body" width="65%">
-          <Label text="TOTALING " class="tint"></Label>
+        <FlexboxLayout alignItems="center" class="m-x-auto body" width="65%">
+          <Label text="TOTALLING " class="tint"></Label>
           <Label [text]="format(data.totals.budget)" class="font-weight-bold"></Label>
           <Label text=" IN BUDGET AND " class="tint"></Label>
           <Label [text]="format(data.totals.expense)" class="font-weight-bold"></Label>
@@ -35,7 +35,7 @@
       </StackLayout>
 
       <Button width="75%" fontSize="13" row="1" borderColor="rgba(0,0,0,.025)" backgroundColor="rgba(0,0,0,.25)" text="SLIDE TO CYCLES &nbsp; &#xE5C8;"
-        class="bounceIn pulse btn btn-outline btn-rounded-lg" color="white"></Button>
+        class="bounceIn pulse btn btn-outline btn-rounded-lg mdi" color="white"></Button>
 
       <Label row="2" text="..." *ngIf="!hiddenBottom" class="m-t-5 text-center"></Label>
 

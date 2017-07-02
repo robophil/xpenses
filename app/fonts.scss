@@ -11,6 +11,15 @@
   font-size: 36px;
 }
 
+@mixin sans($type: 'Light') {
+  font-family: 'OpenSans-'+$type;
+}
+.sans-l { @include sans('Light'); }
+.sans-i { @include sans('Italic'); }
+.sans-b { @include sans('Bold'); }
+.sans-r { @include sans('Regular'); }
+.sans-s { @include sans('Semibold'); }
+
 @mixin roboto($type: 'Light') {
   font-family: 'Roboto-'+$type;
 }

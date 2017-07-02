@@ -1,6 +1,8 @@
+import { CategoriesActions } from './categories.action';
 import { CyclesActions } from "./cycles.action";
 
 export const ACTIONS = [
-  CyclesActions
+  CyclesActions,
+  CategoriesActions
 ];
 

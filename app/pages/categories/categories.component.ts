@@ -1,9 +1,15 @@
-import { Component, ElementRef, ViewChild, OnInit, NgZone } from "@angular/core";
+import { CreateModalComponent } from './create-modal.component';
+import { ModalDialogService } from 'nativescript-angular/modal-dialog';
+import { CategoriesModel } from './../../models/category.model';
+import { Component, ElementRef, ViewChild, OnInit, NgZone, ViewContainerRef } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { GestureTypes, SwipeGestureEventData } from "ui/gestures";
 import { registerElement } from "nativescript-angular/element-registry";
 import { Page } from 'ui/page'
 import { topmost } from "ui/frame"
+import { Store } from "@ngrx/store";
+import { AppState, getCategoriesData } from './../../reducers';
+import { CategoriesActions } from "../../actions/categories.action";
 
 @Component({
   moduleId: module.id,
@@ -14,27 +20,30 @@ import { topmost } from "ui/frame"
 export class CategoriesComponent implements OnInit {
   public title = "Categories";
   private page: Page;
-  public data$: Observable<{ id: any, value: string }[]>;
+  public data$: Observable<CategoriesModel[]>;
 
   constructor(
+    private modal: ModalDialogService,
+    private vcRef: ViewContainerRef,
+    private store: Store<AppState>,
     private zone: NgZone,
+    private actions: CategoriesActions,
   ) {
+    this.data$ = this.store.let(getCategoriesData());
+  }
+
+  onCreate() {
+    let options = {
+      context: {},
+      fullscreen: false,
+      viewContainerRef: this.vcRef
+    };
+    this.modal.showModal(CreateModalComponent, options).then(name => {
+      this.store.dispatch(this.actions.create({ name }));
+    });
   }
 
   ngOnInit() {
-
-    this.data$ = Observable.of(10).map(id => {
-      const data = [];
-
-      for (id; id > 0; id--) {
-        const value = 'Category ' + Math.floor(Math.random() * 10);
-        data.push({ id, value });
-      }
-
-      return data;
-    })
-    // .do(x => console.dir(x))
-    // .subscribe();
   }
 
   onLoaded(event) {
@@ -48,5 +57,4 @@ export class CategoriesComponent implements OnInit {
   onItemTap(event) {
     // console.log('onItemTap');
   }
-
 }

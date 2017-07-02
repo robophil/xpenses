@@ -9,13 +9,13 @@
     <StackLayout row="0" class="header">
       <GridLayout class="content" rows="auto, auto, auto" columns="auto, auto">
         <Label [text]="data.sign" class="prefix"></Label>
-        <Label col="1" [text]="data.balance.money" class="big"></Label>
+        <Label col="1" [text]="data.balance.money" class="big sans-b"></Label>
         <Label row="1" colSpan="2" text="CURRENT BALANCE"></Label>
 
-        <WrapLayout row="2" colSpan="2" col="1" *ngIf="hasNext() || hasPrev()" class="fade p-t-10 p-b-15 m-t-25 m-b-10 text-center m-y-auto m-x-auto pulse">
-          <Label [class.text-muted]="!hasPrev()" fontSize="12" class="mdi" text="&#xE5C4;"></Label>
+        <WrapLayout row="2" colSpan="2" col="1" *ngIf="hasNext() || hasPrev()" class="p-t-10 p-b-15 m-t-25 m-b-10 text-center m-y-auto m-x-auto">
+          <Label [class.fadeIn]="hasPrev()" [color]="hasPrev() ? 'white' : 'lightgray'" fontSize="12" class="mdi" text="&#xE5C4;"></Label>
           <Label class="font-italic" text=" SWIPE " fontSize="10"></Label>
-          <Label [class.text-muted]="!hasNext()" fontSize="12" class="mdi" text="&#xE5C8;"></Label>
+          <Label [class.fadeIn]="hasNext()" [color]="hasNext() ? 'white' : 'lightgray'" fontSize="12" class="mdi" text="&#xE5C8;"></Label>
         </WrapLayout>
 
       </GridLayout>
@@ -50,8 +50,8 @@
       <GridLayout columns="auto, *" class="footer p-l-10 p-r-10">
         <Label text="EXPENSE HISTORY"></Label>
         <WrapLayout col="1" class="pull-right">
-          <Label [text]="total" class="font-weight-bold"></Label>
-          <Label [text]="'ITEM' + (total > 1 ? 'S':'')" class=""></Label>
+          <Label [text]="data.categories.length" class="font-weight-bold"></Label>
+          <Label [text]="'ITEM' + (data.categories.length > 1 ? 'S':'')" class=""></Label>
         </WrapLayout>
       </GridLayout>
     </StackLayout>
