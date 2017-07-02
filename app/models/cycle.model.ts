@@ -2,6 +2,7 @@ export interface CyclesCategoryInterface {
   id: number,
   name: string,
   value: number,
+  category_id: number,
   money: string,
   created: Date
 }

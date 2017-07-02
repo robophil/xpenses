@@ -19,7 +19,6 @@ declare const android: any;
   styleUrls: ["./cycle.css"],
 })
 export class CycleComponent implements OnInit, AfterViewInit {
-  hidden;
   private page: Page;
   public title = "Cycles";
   @Input() total: number;
@@ -44,11 +43,13 @@ export class CycleComponent implements OnInit, AfterViewInit {
   addExpense() {
     let options = {
       context: {},
-      fullscreen: true,
+      fullscreen: false,
       viewContainerRef: this.vcRef
     };
-    this.modal.showModal(AddCategoryComponent, options).then(({ amount, category}) => {
-      this.create.emit({ id: this.data.id, amount, category });
+    this.modal.showModal(AddCategoryComponent, options).then(params => {
+      if(params) {
+        this.create.emit({ id: this.data.id, amount: params.amount, category: params.category });
+      }
     });
   }
 
@@ -76,10 +77,8 @@ export class CycleComponent implements OnInit, AfterViewInit {
     return this.position != 1;
   }
 
-
   ngOnInit() {
-    this.hidden = this.data.expense ? false : true;
-    // console.log(this.hidden);
+    console.dir(this.data.categories);
   }
 
   ngAfterViewInit() {

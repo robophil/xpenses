@@ -6,9 +6,8 @@ import { CategoryInterface } from '../models/category.model';
 
 import toLocaleString from '../utils/toLocaleString';
 import round from '../utils/toRound';
-import { rand, rand2 } from '../utils/random';
+import { rand, rand2, uniq } from '../utils/random';
 export const sign = '₦';
-
 
 @Injectable()
 export class CyclesService {
@@ -17,11 +16,12 @@ export class CyclesService {
     return 0;
   }
 
-  add_category(amout, { id, name }: CategoryInterface) {
-    const value = round(amout), money = toLocaleString(value);
+  add_category(amount, { id, name }: CategoryInterface) {
+    const category_id = id, value = round(amount), money = toLocaleString(value);
     return <CyclesCategoryInterface>{
-      id,
+      id: uniq(32),
       name,
+      category_id,
       value,
       money,
       created: new Date
@@ -47,7 +47,7 @@ export class CyclesService {
   }
 
   fetch(params): Observable<CyclesModel[]> {
-    return Observable.of(3).map(i => {
+    return Observable.of(1).map(i => {
       const data = [];
       const id = rand2();
 
@@ -57,6 +57,11 @@ export class CyclesService {
         const balance = this.format(budget.value - expense.value);
         const progress = round(expense.value/budget.value, 1) * 100;
         const categories = [];
+
+        for (let j = 1; j > 0; j--) {
+          const id_2 = round(rand2()), name = 'Category_'+id_2, value = round(rand()), money = toLocaleString(value);
+          categories.push({ id: id_2, name, value, money, created: new Date() });
+        }
 
         data.push({ id, sign, balance, progress, categories, expense, budget, created: new Date });
       }

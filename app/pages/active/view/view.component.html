@@ -1,9 +1,9 @@
-<GridLayout row="0" rows="*">
+<GridLayout row="0" rows="*" backgroundColor="red">
 
   <ng-container *ngIf="data$ | async as data">
 
-    <slides [pageIndicators]="true">
-      <slide *ngFor="let item of data; let i = index">
+    <slides [pageIndicators]="true" backgroundColor="blue" width="100%" height="100%">
+      <slide *ngFor="let item of data; let i = index" backgroundColor="yellow" width="100%" height="100%">
         <Cycle (create)="createExpense($event)" [position]="i+1" [total]="data.length" [data]="item"></Cycle>
       </slide>
     </slides>

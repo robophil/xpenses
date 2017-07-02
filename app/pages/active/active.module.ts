@@ -9,7 +9,7 @@ import { CycleComponent } from './view/cycle/cycle.component';
 import { AddCategoryComponent } from "./view/add-category/add-category.component";
 import { NSGradientDirectiveModule } from "nativescript-ng-gradient";
 import { ModalModule } from './../../components/modal';
-
+import { DropDownModule } from 'nativescript-drop-down/angular';
 
 @NgModule({
   declarations: [
@@ -24,6 +24,7 @@ import { ModalModule } from './../../components/modal';
     ActiveRouteModule,
     NSGradientDirectiveModule,
     ModalModule,
+    DropDownModule,
     SlidesModule
   ],
   exports: [ActiveComponent],

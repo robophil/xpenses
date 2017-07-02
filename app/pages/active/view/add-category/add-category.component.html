@@ -1,7 +1,21 @@
-<Modal (close)="close($event)">
-  <GridLayout verticalAlign="center">
+<StackLayout class="form p-15 m-b-20" width="90%" *ngIf="data$ | async as data">
 
-    <Label text="Hello AddCategoryComponent!"></Label>"
+  <label marginLeft="6" class="h5 text-muted m-y-10" text="Expense & Money Spent"></label>
 
-  </GridLayout>
-</Modal>
+  <StackLayout orientation="horizontal" class="input-field">
+    <label class="mdi text-center text-muted" text="&#xE05F;"></label>
+
+    <DropDown class="default sans-l"
+      [items] = "mapToDropdown(data)"
+      [selectedIndex] = "selectedIndex"
+      hint = "Select Expense"
+      (selectedIndexChanged)="onSelectCategory(data[$event.newIndex])">
+    </DropDown>
+  </StackLayout>
+
+  <StackLayout orientation="horizontal" class="input-field">
+    <label class="mdi text-center text-muted" [text]="money_sign"></label>
+    <TextField class="input p-y-10" #field autocorrect="true" keyboardType="number" returnKeyType="done" (returnPress)="onDone(field.text)"></TextField>
+  </StackLayout>
+
+</StackLayout>

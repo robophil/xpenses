@@ -9,6 +9,7 @@ import { SlidesComponent } from 'nativescript-ngx-slides/slides/app/slides/slide
 import { CycleInterface } from '../../../models/cycle.model';
 import { Store } from "@ngrx/store";
 import { AppState, getCyclesData } from "../../../reducers";
+import { CyclesActions } from "../../../actions/cycles.action";
 
 const transition = { name: "slide", duration: 300 };
 
@@ -26,6 +27,7 @@ export class ActiveViewComponent implements OnInit, AfterViewInit {
   constructor(
     private store: Store<AppState>,
     private router: RouterExtensions,
+    private actions: CyclesActions,
   ) {
     this.data$ = this.store.let(getCyclesData());
   }
@@ -35,12 +37,8 @@ export class ActiveViewComponent implements OnInit, AfterViewInit {
     this.router.navigateByUrl('/active/open/', { transition });
   }
 
-  createExpense(params) {
-  // createExpense({ id, amount, category }) {
-    console.log('create yay!');
-    console.dir(params);
-    // this.store.dispatch(this.actions.create({ name }));
-    // this.router.navigateByUrl('/create', { transition });
+  createExpense({ id, amount, category }) {
+    this.store.dispatch(this.actions.add_category({ id, amount, category }));
   }
 
   ngOnInit(){

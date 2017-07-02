@@ -24,17 +24,26 @@ const initialState: CyclesState = {
   data: null,
 }
 
+export function cycle(state: CyclesModel, { type, payload }: Action): CyclesModel {
+  switch (type) {
+    case CyclesActions.ADD_CATEGORY_COMPLETE: {
+      const categories = [payload, ...state.categories];
+      return Object.assign({}, state, { categories });
+    }
+  }
+}
+
 // Reducer
 export function cycles(state: CyclesState = initialState, { type, payload }: Action): CyclesState {
   switch (type) {
     case CyclesActions.SELECT: { }
 
     case CyclesActions.ADD_CATEGORY_COMPLETE: {
-      const cycle = state.data[payload.id];
-      const previous = cycle.categories;
-      const categories = [payload.category, ...previous];
+      const selected = state.data[payload.id];
+      const update = cycle(selected, { type: CyclesActions.ADD_CATEGORY_COMPLETE, payload: payload.category });
+      const data = Object.assign({}, state.data, { [payload.id]: update });
 
-      return Object.assign({}, state, { data: Object.assign({}, state.data, { categories }) });
+      return Object.assign({}, state, { data });
     }
 
     case CyclesActions.CREATE_COMPLETE: {
