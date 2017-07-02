@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import "rxjs/Rx";
-import { CyclesModel } from '../models/cycle.model';
+import { CyclesModel, CyclesCategoryInterface } from '../models/cycle.model';
+import { CategoryInterface } from '../models/category.model';
 
 import toLocaleString from '../utils/toLocaleString';
 import round from '../utils/toRound';
@@ -14,6 +15,17 @@ export class CyclesService {
 
   count(): number {
     return 0;
+  }
+
+  add_category(amout, { id, name }: CategoryInterface) {
+    const value = round(amout), money = toLocaleString(value);
+    return <CyclesCategoryInterface>{
+      id,
+      name,
+      value,
+      money,
+      created: new Date
+    };
   }
 
   create({ budget }): Observable<CyclesModel> {
@@ -44,13 +56,7 @@ export class CyclesService {
         const budget = this.format(rand());
         const balance = this.format(budget.value - expense.value);
         const progress = round(expense.value/budget.value, 1) * 100;
-
         const categories = [];
-
-        for (let j = 12; j > 0; j--) {
-          const id_2 = round(rand2()), name = 'Category_'+id_2, value = round(rand()), money = toLocaleString(value);
-          categories.push({ id: id_2, name, value, money, created: new Date() });
-        }
 
         data.push({ id, sign, balance, progress, categories, expense, budget, created: new Date });
       }

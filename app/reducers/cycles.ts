@@ -29,6 +29,14 @@ export function cycles(state: CyclesState = initialState, { type, payload }: Act
   switch (type) {
     case CyclesActions.SELECT: { }
 
+    case CyclesActions.ADD_CATEGORY_COMPLETE: {
+      const cycle = state.data[payload.id];
+      const previous = cycle.categories;
+      const categories = [payload.category, ...previous];
+
+      return Object.assign({}, state, { data: Object.assign({}, state.data, { categories }) });
+    }
+
     case CyclesActions.CREATE_COMPLETE: {
       const data = Object.assign({}, state.data, { [payload.id]: payload });
       const ids = [payload.id, ...state.ids];

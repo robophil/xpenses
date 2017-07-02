@@ -19,6 +19,16 @@ export class CyclesActions {
     return { type: CyclesActions.CREATE_COMPLETE, payload: cycle };
   }
 
+  static ADD_CATEGORY = '[CYCLES] ADD CATEGORY';
+  add_category({ id, amount, category }): Action {
+    return { type: CyclesActions.ADD_CATEGORY, payload: { id, amount, category } };
+  }
+
+  static ADD_CATEGORY_COMPLETE = '[CYCLES] ADD CATEGORY COMPLETE';
+  add_category_complete(id, category): Action {
+    return { type: CyclesActions.ADD_CATEGORY_COMPLETE, payload: { id, category } };
+  }
+
   static INIT = '[CYCLES] INIT';
   init(): Action {
     return { type: CyclesActions.INIT }

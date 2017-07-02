@@ -34,4 +34,12 @@ export class CyclesEffects {
     .map(action => action.payload)
     .switchMap(payload => this.cycles.create(payload))
     .map(data => this.cyclesActions.create_complete(data))
+
+  @Effect() add_category$: Observable<Action> = this.actions$
+    .ofType(CyclesActions.ADD_CATEGORY)
+    .map(action => action.payload)
+    .switchMap(payload => {
+      const category = this.cycles.add_category(payload.amount, payload.category);
+      return Observable.of(this.cyclesActions.add_category_complete(payload.id, category))
+    })
 }

@@ -1,3 +1,11 @@
+export interface CyclesCategoryInterface {
+  id: number,
+  name: string,
+  value: number,
+  money: string,
+  created: Date
+}
+
 export interface CycleInterface {
   id?: number,
   sign: string,
@@ -14,13 +22,7 @@ export interface CycleInterface {
     value: number,
     money: string
   },
-  categories: {
-    id: number,
-    name: string,
-    value: number,
-    money: string,
-    created: Date
-  }[],
+  categories: CyclesCategoryInterface[],
   created: Date
 }
 
@@ -40,12 +42,6 @@ export class CyclesModel implements CycleInterface {
     value: number,
     money: string
   };
-  categories: {
-    id: number;
-    name: string;
-    value: number;
-    money: string;
-    created: Date;
-  }[];
+  categories: CyclesCategoryInterface[];
   created: Date;
 }
