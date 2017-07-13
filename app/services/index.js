@@ -1,9 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var cycles_service_1 = require("./cycles.service");
-var categories_service_1 = require("./categories.service");
-exports.SERVICES = [
-    cycles_service_1.CyclesService,
-    categories_service_1.CategoriesService,
-];
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLG1EQUFpRDtBQUNqRCwyREFBeUQ7QUFFNUMsUUFBQSxRQUFRLEdBQUc7SUFDdEIsOEJBQWE7SUFDYixzQ0FBaUI7Q0FDbEIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEN5Y2xlc1NlcnZpY2UgfSBmcm9tIFwiLi9jeWNsZXMuc2VydmljZVwiO1xuaW1wb3J0IHsgQ2F0ZWdvcmllc1NlcnZpY2UgfSBmcm9tIFwiLi9jYXRlZ29yaWVzLnNlcnZpY2VcIjtcblxuZXhwb3J0IGNvbnN0IFNFUlZJQ0VTID0gW1xuICBDeWNsZXNTZXJ2aWNlLFxuICBDYXRlZ29yaWVzU2VydmljZSxcbl07XG4iXX0=

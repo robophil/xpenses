@@ -1,9 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var categories_action_1 = require("./categories.action");
-var cycles_action_1 = require("./cycles.action");
-exports.ACTIONS = [
-    cycles_action_1.CyclesActions,
-    categories_action_1.CategoriesActions
-];
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLHlEQUF3RDtBQUN4RCxpREFBZ0Q7QUFFbkMsUUFBQSxPQUFPLEdBQUc7SUFDckIsNkJBQWE7SUFDYixxQ0FBaUI7Q0FDbEIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IENhdGVnb3JpZXNBY3Rpb25zIH0gZnJvbSAnLi9jYXRlZ29yaWVzLmFjdGlvbic7XG5pbXBvcnQgeyBDeWNsZXNBY3Rpb25zIH0gZnJvbSBcIi4vY3ljbGVzLmFjdGlvblwiO1xuXG5leHBvcnQgY29uc3QgQUNUSU9OUyA9IFtcbiAgQ3ljbGVzQWN0aW9ucyxcbiAgQ2F0ZWdvcmllc0FjdGlvbnNcbl07XG5cbiJdfQ==
